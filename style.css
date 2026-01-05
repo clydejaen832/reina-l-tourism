@@ -146,3 +146,88 @@ footer {
     color: #ecfeff;
     background-color: rgba(0, 0, 0, 0.2);
 }
+/* PATRICK AI STYLES */
+#patrick-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0f766e;
+    color: #ecfeff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+#patrick-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 300px;
+    max-height: 400px;
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+#patrick-header {
+    background-color: #0f766e;
+    color: #ecfeff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#patrick-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#patrick-chat {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+#patrick-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.patrick-msg {
+    background-color: #e0f2f1;
+    color: #033;
+    padding: 8px 10px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    max-width: 90%;
+}
+
+.user-msg {
+    background-color: #0f766e;
+    color: #ecfeff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    max-width: 90%;
+}
+
+#patrick-input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
