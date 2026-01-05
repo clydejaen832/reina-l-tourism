@@ -1,39 +1,109 @@
+/* GENERAL */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f2f2f2;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f766e, #5eead4);
+    color: #033;
 }
 
+/* HEADER */
 header {
-    background-color: #2e8b57;
-    color: white;
     text-align: center;
-    padding: 25px;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
 }
 
 header h1 {
+    font-size: 42px;
     margin: 0;
-    font-size: 36px;
+    color: #ecfeff;
 }
 
 header p {
     margin: 5px 0;
+    color: #e0f2f1;
 }
 
+.subtitle {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* SECTIONS */
 section {
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    text-align: center;
+    color: #0f766e;
+    margin-bottom: 20px;
+}
+
+/* INTRO */
+.intro p {
+    text-align: center;
+}
+
+/* TOURIST SPOTS */
+.spots {
+    display: grid;
+    gap: 25px;
 }
 
 .spot {
-    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 14px;
+    background-color: #ecfeff;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.spot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.spot h3 {
+    color: #115e59;
+    margin-top: 15px;
+}
+
+/* IMAGE PLACEHOLDER */
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    background: repeating-linear-gradient(
+        45deg,
+        #5eead4,
+        #5eead4 10px,
+        #99f6e4 10px,
+        #99f6e4 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #065f46;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* PLACEHOLDER TEXT */
+.placeholder {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* FOOTER */
 footer {
-    background-color: #2e8b57;
-    color: white;
     text-align: center;
-    padding: 12px;
+    padding: 20px;
+    color: #ecfeff;
+    background-color: rgba(0, 0, 0, 0.2);
 }
