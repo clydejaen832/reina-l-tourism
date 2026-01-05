@@ -63,6 +63,104 @@
         <p>EMTECH Project | Group 4 and 5</p>
     </footer>
 
+    <!-- PATRICK AI ASSISTANT -->
+    <div id="patrick-container">
+        <div id="patrick-header">
+            <img src="https://via.placeholder.com/50" alt="Patrick AI" id="patrick-pic">
+            <span>Patrick AI</span>
+            <button id="patrick-close">×</button>
+        </div>
+        <div id="patrick-chat">
+            <div id="patrick-messages"></div>
+            <input type="text" id="patrick-input" placeholder="Ask me anything...">
+        </div>
+    </div>
+
+    <!-- PATRICK TOGGLE BUTTON -->
+    <button id="patrick-toggle">🤖</button>
+
+    <!-- PATRICK AI SCRIPT -->
+    <script>
+        const patrickContainer = document.getElementById('patrick-container');
+        const patrickToggle = document.getElementById('patrick-toggle');
+        const patrickClose = document.getElementById('patrick-close');
+        const patrickMessages = document.getElementById('patrick-messages');
+        const patrickInput = document.getElementById('patrick-input');
+
+        // Toggle Patrick AI
+        patrickToggle.addEventListener('click', () => {
+            patrickContainer.style.display = patrickContainer.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Close button
+        patrickClose.addEventListener('click', () => patrickContainer.style.display = 'none');
+
+        // Group member hobbies
+        const memberHobbies = {
+            Clyde: "Favorite ko siyang classmate!!!!!!!!!!!!!", 
+            Jero: "Maganda puntahan bahay nila", 
+            Ren: "Magaling siya sumayaw", 
+            Nicole: "Maganda parang si Irish", 
+            Irish: "Maganda parang si Nicole", 
+            Roniel: "Best friend ko siya", 
+            Gwynette: "Mahilig siya sa mga hayop at sa pag babasa", 
+            Angela: "Mabait siya beri gud na classmate", 
+            Sophia: "Maganda siya mag drawing pero mas maganda ako", 
+            Josh: "Papasok pa ba yun?", 
+            Karl: "Crush ko yun ehh" 
+        };
+
+        // Basic AI responses
+        function getPatrickResponse(input) {
+            input = input.toLowerCase();
+
+            // Greetings
+            if (/hi|hello|hey/.test(input)) return "Hello! I'm Patrick AI, your assistant 🤖";
+
+            // Age
+            if (/how old|your age/.test(input)) return "I am timeless 😎, pero 16 ata yung totoong Patrick";
+
+            // Hobbies
+            for (let member in memberHobbies) {
+                if (input.includes(member.toLowerCase())) {
+                    return `${member} ${memberHobbies[member]}.`;
+                }
+            }
+
+            // About Patrick AI
+            if (/your name|who are you/.test(input)) return "I'm Patrick AI, here to help you navigate the site!";
+            if (/your hobby|like to do/.test(input)) return "I like helping people learn about Reina-L 😄";
+
+            // Fun keywords
+            if (/joke/.test(input)) return "Why did the tourist bring a ladder? To reach new heights! 😂";
+
+            // Default
+            return "Hmm, interesting! Can you ask something else?";
+        }
+
+        // Send message
+        patrickInput.addEventListener('keypress', function(e){
+            if(e.key === 'Enter' && patrickInput.value.trim() !== '') {
+                const userMsg = patrickInput.value;
+
+                // Show user message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'user-msg';
+                userDiv.textContent = userMsg;
+                patrickMessages.appendChild(userDiv);
+
+                // AI response
+                const botDiv = document.createElement('div');
+                botDiv.className = 'patrick-msg';
+                botDiv.textContent = getPatrickResponse(userMsg);
+                patrickMessages.appendChild(botDiv);
+
+                patrickInput.value = '';
+                patrickMessages.scrollTop = patrickMessages.scrollHeight;
+            }
+        });
+    </script>
+
 </body>
 </html>
 
