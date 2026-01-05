@@ -92,12 +92,51 @@ section h2 {
     color: #065f46;
     font-weight: bold;
     letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.image-placeholder:hover {
+    transform: scale(1.03);
+    background: repeating-linear-gradient(
+        45deg,
+        #4dd3c6,
+        #4dd3c6 10px,
+        #86f0e0 10px,
+        #86f0e0 20px
+    );
 }
 
 /* PLACEHOLDER TEXT */
 .placeholder {
     color: #64748b;
     font-style: italic;
+}
+
+/* JOKE MESSAGE BOX */
+.joke-message {
+    background-color: #ffdddd;
+    color: #900;
+    font-size: 24px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px auto;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.joke-subtext {
+    font-size: 16px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* FOOTER */

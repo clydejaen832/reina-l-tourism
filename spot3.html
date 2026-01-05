@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tourist Spot 3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .joke-message {
+            background-color: #ffdddd;
+            color: #900;
+            font-size: 24px;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px;
+        }
+        .joke-subtext {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+        }
+        .image-placeholder {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tourist Spot 3</h1>
+        <p><a href="index.html">Back to Home</a></p>
+    </header>
+
+    <section class="spot-detail">
+        <div class="image-placeholder" onclick="showJoke()">Image Here (Click Me)</div>
+
+        <div id="joke" style="display:none;">
+            <div class="joke-message">
+                ⚠️ You got a virus! ⚠️
+                <div class="joke-subtext">(Joke lang, wala pa ito laman)</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showJoke() {
+            document.getElementById('joke').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
