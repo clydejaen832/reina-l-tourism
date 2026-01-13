@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR / BACK BUTTON -->
+<header class="top-bar">
+    <div class="logo">Reina-L</div>
+    <nav>
+        <a href="index.html" class="nav-btn back-btn">← Back to Home</a>
+    </nav>
+</header>
+
+<section class="content">
+    <h2>Settings</h2>
+
+    <div class="settings-group">
+
+        <div class="setting">
+            <span>Theme Mode</span>
+            <select id="themeSetting">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <div class="setting">
+            <span>Background Animation</span>
+            <select id="bgAnimSetting">
+                <option value="on">On</option>
+                <option value="off">Off</option>
+            </select>
+        </div>
+
+        <div class="setting">
+            <span>Sound Effects</span>
+            <select id="soundSetting">
+                <option value="on">On</option>
+                <option value="off">Off</option>
+            </select>
+        </div>
+
+        <div class="setting">
+            <span>Text Size</span>
+            <select id="textSizeSetting">
+                <option value="normal">Normal</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+
+        <div class="setting">
+            <span>Language / Tone</span>
+            <select id="langSetting">
+                <option value="en">English</option>
+                <option value="tl">Taglish</option>
+            </select>
+        </div>
+
+        <div class="setting">
+            <span>Reduced Motion</span>
+            <select id="motionSetting">
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select>
+        </div>
+
+    </div>
+</section>
+
+<!-- JS -->
+<script src="applySettings.js"></script>
+<script src="settings.js"></script>
+
+</body>
+</html>
