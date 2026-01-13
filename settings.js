@@ -1,17 +1,27 @@
-const settings = [
-    "theme", "bgAnim", "sound", "textSize", "lang", "motion"
-];
+// ONLY USED ON SETTINGS PAGE
 
-settings.forEach(key => {
-    const el = document.getElementById(key + "Setting");
-    if (!el) return;
+// GET ELEMENTS
+const themeSelect = document.getElementById('themeSetting');
+const bgAnimSelect = document.getElementById('bgAnimSetting');
+const textSizeSelect = document.getElementById('textSizeSetting');
+const langSelect = document.getElementById('langSetting');
+const motionSelect = document.getElementById('motionSetting');
 
-    // Load saved setting
-    const saved = localStorage.getItem(key);
-    if (saved) el.value = saved;
+// SAVE SETTINGS TO LOCALSTORAGE
+function saveSettings() {
+    localStorage.setItem('theme', themeSelect.value);
+    localStorage.setItem('textSize', textSizeSelect.value);
+    localStorage.setItem('bgAnim', bgAnimSelect.value);
+    localStorage.setItem('motion', motionSelect.value);
+    localStorage.setItem('lang', langSelect.value);
 
-    // Save on change
-    el.addEventListener("change", () => {
-        localStorage.setItem(key, el.value);
-    });
-});
+    // Immediately apply changes to see effect
+    if(typeof applySettings === 'function') applySettings();
+}
+
+// LISTEN TO CHANGES
+themeSelect.addEventListener('change', saveSettings);
+textSizeSelect.addEventListener('change', saveSettings);
+bgAnimSelect.addEventListener('change', saveSettings);
+motionSelect.addEventListener('change', saveSettings);
+langSelect.addEventListener('change', saveSettings);
