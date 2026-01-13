@@ -1,31 +1,25 @@
-// APPLY SETTINGS ON ANY PAGE
+// Get dropdowns if they exist
+const themeSelect = document.getElementById('themeSetting');
+const textSizeSelect = document.getElementById('textSizeSetting');
+const bgAnimSelect = document.getElementById('bgAnimSetting');
+const motionSelect = document.getElementById('motionSetting');
+const langSelect = document.getElementById('langSetting'); // optional
+
+// Function to apply settings
 function applySettings() {
-    // THEME MODE
     const theme = localStorage.getItem('theme') || 'light';
-    document.body.classList.toggle('dark-mode', theme === 'dark');
-
-    // TEXT SIZE
     const textSize = localStorage.getItem('textSize') || 'normal';
-    document.body.classList.toggle('large-text', textSize === 'large');
-
-    // BACKGROUND ANIMATION
     const bgAnim = localStorage.getItem('bgAnim') || 'on';
-    document.body.classList.toggle('bg-animated', bgAnim === 'on');
-
-    // REDUCED MOTION
     const motion = localStorage.getItem('motion') || 'off';
-    document.body.style.transition = motion === 'on' ? 'none' : '';
-
-    // LANGUAGE / TONE (placeholder)
     const lang = localStorage.getItem('lang') || 'en';
 
-    // UPDATE SETTINGS DROPDOWNS IF PRESENT
-    const themeSelect = document.getElementById('themeSetting');
-    const textSizeSelect = document.getElementById('textSizeSetting');
-    const bgAnimSelect = document.getElementById('bgAnimSetting');
-    const motionSelect = document.getElementById('motionSetting');
-    const langSelect = document.getElementById('langSetting');
+    // Toggle CSS classes on body
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.body.classList.toggle('large-text', textSize === 'large');
+    document.body.classList.toggle('bg-animated', bgAnim === 'on');
+    document.body.classList.toggle('reduced-motion', motion === 'on');
 
+    // Update dropdowns if present
     if(themeSelect) themeSelect.value = theme;
     if(textSizeSelect) textSizeSelect.value = textSize;
     if(bgAnimSelect) bgAnimSelect.value = bgAnim;
@@ -33,5 +27,18 @@ function applySettings() {
     if(langSelect) langSelect.value = lang;
 }
 
-// RUN SETTINGS ON PAGE LOAD
-window.addEventListener('load', applySettings);
+// Save a setting and reapply immediately
+function saveSetting(key, value) {
+    localStorage.setItem(key, value);
+    applySettings();
+}
+
+// Add change listeners if dropdowns exist
+if(themeSelect) themeSelect.addEventListener('change', e => saveSetting('theme', e.target.value));
+if(textSizeSelect) textSizeSelect.addEventListener('change', e => saveSetting('textSize', e.target.value));
+if(bgAnimSelect) bgAnimSelect.addEventListener('change', e => saveSetting('bgAnim', e.target.value));
+if(motionSelect) motionSelect.addEventListener('change', e => saveSetting('motion', e.target.value));
+if(langSelect) langSelect.addEventListener('change', e => saveSetting('lang', e.target.value));
+
+// Apply settings immediately on page load
+window.addEventListener('DOMContentLoaded', applySettings);
