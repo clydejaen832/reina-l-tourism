@@ -148,3 +148,24 @@ footer {
     padding: 6px 10px;
     border-radius: 8px;
 }
+/* DARK MODE */
+.dark-mode {
+    background: linear-gradient(135deg, #033, #065f46) !important;
+    color: #ecfeff !important;
+}
+
+/* LARGE TEXT */
+.large-text {
+    font-size: 1.2rem !important;
+}
+
+/* BACKGROUND ANIMATION example */
+.bg-animated {
+    animation: bgColorChange 10s infinite alternate;
+}
+
+@keyframes bgColorChange {
+    0% { background: linear-gradient(135deg, #0f766e, #5eead4); }
+    50% { background: linear-gradient(135deg, #5eead4, #0f766e); }
+    100% { background: linear-gradient(135deg, #0f766e, #5eead4); }
+}
