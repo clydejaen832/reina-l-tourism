@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <title>Reina-L Tourist Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Logo image styling */
+        .logo img {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        /* Optional dark mode tweak for logo */
+        .dark-mode .logo img {
+            filter: brightness(0.9) contrast(1.1);
+        }
+    </style>
 </head>
 <body>
 
 <header class="top-bar">
-    <div class="logo">Reina-L</div>
+    <!-- Updated Logo -->
+    <div class="logo">
+        <img src="reina-logo.png" alt="REINA Logo">
+    </div>
+
     <nav class="top-buttons">
         <a href="settings.html" class="top-btn">Settings</a>
         <a href="#" class="top-btn">Credits</a>
