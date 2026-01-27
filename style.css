@@ -7,7 +7,7 @@ body {
     margin: 0;
     background: #f5f7fa;
     color: #222;
-    transition: background 0.3s, color 0.3s, font-size 0.3s; /* smooth transition for settings */
+    transition: background 0.3s, color 0.3s, font-size 0.3s;
 }
 
 /* TOP BAR */
@@ -25,19 +25,23 @@ body {
     font-weight: bold;
 }
 
-.nav-btn {
-    height: 36px;
-    padding: 0 18px;
+.top-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.top-btn {
+    text-decoration: none;
+    padding: 8px 18px;
     border-radius: 18px;
-    border: none;
     background: #e5e7eb;
-    margin-left: 10px;
-    cursor: pointer;
+    color: #111;
+    font-size: 14px;
 }
 
 /* HERO */
 .hero {
-    padding: 60px 40px;
+    padding: 70px 40px;
     background: linear-gradient(135deg, #0f766e, #5eead4);
     color: white;
 }
@@ -49,10 +53,19 @@ body {
     gap: 20px;
 }
 
-.hero-center h1 {
-    font-size: 32px;
-    margin: 0;
+.hero-center {
     text-align: center;
+}
+
+.hero-center h1 {
+    font-size: 34px;
+    margin: 0;
+}
+
+.hero-center p {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.9;
 }
 
 .hero-side-btn {
@@ -68,30 +81,37 @@ body {
 
 /* CONTENT */
 .content {
-    padding: 50px 40px;
+    padding: 60px 40px;
 }
 
 .section-title {
-    margin-bottom: 30px;
-    font-size: 24px;
+    margin-bottom: 35px;
+    font-size: 26px;
+    text-align: center;
 }
 
 /* CARDS */
 .card-grid {
     display: grid;
-    gap: 30px;
+    gap: 35px;
 }
 
-.four-cards {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.three-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .card {
-    background: #0f172a; /* dark blue */
+    background: #0f172a;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 8px 22px rgba(0,0,0,0.15);
     color: white;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
 .card-img {
@@ -118,6 +138,8 @@ body {
     border-radius: 22px;
     border: none;
     background: #1e3a8a;
+    color: white;
+    cursor: pointer;
 }
 
 /* FOOTER */
@@ -128,64 +150,42 @@ footer {
     color: #ccc;
 }
 
-/* SETTINGS PANEL */
-.settings-group {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.setting {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 18px 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.setting select {
-    padding: 6px 10px;
-    border-radius: 8px;
-}
-
 /* =====================
-   SETTINGS CLASSES
+   SETTINGS SUPPORT
 ===================== */
 
-/* DARK MODE */
 .dark-mode {
-    background: linear-gradient(135deg, #033, #065f46) !important;
-    color: #ecfeff !important;
+    background: #0a0a0a;
+    color: #ecfeff;
 }
 
-/* LARGE TEXT */
+.dark-mode .top-bar {
+    background: #111;
+}
+
+.dark-mode .top-btn {
+    background: #333;
+    color: #ecfeff;
+}
+
+.dark-mode .card {
+    background: #1f1f1f;
+}
+
 .large-text {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
 }
 
-/* BACKGROUND ANIMATION */
 .bg-animated {
-    position: relative; /* ensure layer separation */
     animation: bgColorChange 10s infinite alternate;
 }
 
 @keyframes bgColorChange {
     0% { background: linear-gradient(135deg, #0f766e, #5eead4); }
-    50% { background: linear-gradient(135deg, #5eead4, #0f766e); }
-    100% { background: linear-gradient(135deg, #0f766e, #5eead4); }
+    100% { background: linear-gradient(135deg, #5eead4, #0f766e); }
 }
 
-/* REDUCED MOTION */
 .reduced-motion {
-    animation: none !important;
-    transition: none !important;
+    animation: none;
+    transition: none;
 }
-
-/* =====================
-   OPTIONAL: Add body classes dynamically
-   via JS: dark-mode, large-text, bg-animated, reduced-motion
-===================== */
