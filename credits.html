@@ -21,8 +21,27 @@
 
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
             gap: 40px;
+        }
+
+        @media (max-width: 1000px) {
+            .members-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 500px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
         }
 
         .member-card {
@@ -56,6 +75,7 @@
             padding: 25px 20px;
             background: #e5e7eb;
             border-radius: 18px;
+            color: black; /* keep text black even in dark mode */
         }
 
         .contact-info h3, .contributions h3 {
@@ -66,19 +86,6 @@
         .contact-info p, .contributions p {
             margin: 6px 0;
             font-size: 14px;
-        }
-
-        /* Fix dark mode text color for readability */
-        .dark-mode .contact-info,
-        .dark-mode .contributions {
-            color: black;
-        }
-
-        /* Responsive tweak for smaller screens */
-        @media(max-width: 600px) {
-            .members-grid {
-                gap: 25px;
-            }
         }
 
     </style>
@@ -116,3 +123,66 @@
             <div class="member-name">Member 4</div>
         </div>
         <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 5</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 6</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 7</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 8</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 9</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 10</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 11</div>
+        </div>
+        <div class="member-card">
+            <div class="member-photo">Photo</div>
+            <div class="member-name">Member 12</div>
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Email: group3stemA@example.com</p>
+        <p>Phone: +63 912 345 6789</p>
+        <p>Website: www.reina-l.com</p>
+    </div>
+
+    <!-- Contributions -->
+    <div class="contributions">
+        <h3>Member Contributions</h3>
+        <p>Member 1 – N/A</p>
+        <p>Member 2 – N/A</p>
+        <p>Member 3 – N/A</p>
+        <p>Member 4 – N/A</p>
+        <p>Member 5 – N/A</p>
+        <p>Member 6 – N/A</p>
+        <p>Member 7 – N/A</p>
+        <p>Member 8 – N/A</p>
+        <p>Member 9 – N/A</p>
+        <p>Member 10 – N/A</p>
+        <p>Member 11 – N/A</p>
+        <p>Member 12 – N/A</p>
+    </div>
+
+</section>
+
+<script src="applysettings.js"></script>
+</body>
+</html>
