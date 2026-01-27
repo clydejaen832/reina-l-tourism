@@ -68,6 +68,12 @@
             font-size: 14px;
         }
 
+        /* Fix dark mode text color for readability */
+        .dark-mode .contact-info,
+        .dark-mode .contributions {
+            color: black;
+        }
+
         /* Responsive tweak for smaller screens */
         @media(max-width: 600px) {
             .members-grid {
@@ -80,9 +86,7 @@
 <body>
 
 <header class="top-bar">
-    <div class="logo">
-        <img src="reina-logo.png" alt="REINA Logo">
-    </div>
+    <div class="logo">Reina-L</div>
     <nav class="top-buttons">
         <a href="settings.html" class="top-btn">Settings</a>
         <a href="index.html" class="top-btn">Home</a>
@@ -112,66 +116,3 @@
             <div class="member-name">Member 4</div>
         </div>
         <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 5</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 6</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 7</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 8</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 9</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 10</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 11</div>
-        </div>
-        <div class="member-card">
-            <div class="member-photo">Photo</div>
-            <div class="member-name">Member 12</div>
-        </div>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>Email: group3stemA@example.com</p>
-        <p>Phone: +63 912 345 6789</p>
-        <p>Website: www.reina-l.com</p>
-    </div>
-
-    <!-- Contributions -->
-    <div class="contributions">
-        <h3>Member Contributions</h3>
-        <p>Member 1 – Frontend Design</p>
-        <p>Member 2 – Content Research</p>
-        <p>Member 3 – Coding & Development</p>
-        <p>Member 4 – Graphic Design</p>
-        <p>Member 5 – Testing & Debugging</p>
-        <p>Member 6 – Research & Documentation</p>
-        <p>Member 7 – UI/UX Design</p>
-        <p>Member 8 – Content Writing</p>
-        <p>Member 9 – Multimedia & Media Assets</p>
-        <p>Member 10 – Project Management</p>
-        <p>Member 11 – QA & Review</p>
-        <p>Member 12 – Presentation & Reporting</p>
-    </div>
-
-</section>
-
-<script src="applysettings.js"></script>
-</body>
-</html>
