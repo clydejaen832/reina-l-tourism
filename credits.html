@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reina-L Tourist Website - Credits</title>
+    <title>Reina Tourist Website - Credits</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
@@ -107,7 +107,7 @@
 
         .member-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
         }
 
         .member-photo {
@@ -129,12 +129,12 @@
 
         /* ===== CONTACT & CONTRIBUTIONS ===== */
         .info-card {
-            background: #e5e7eb;
+            background: #e5e7eb; /* light gray in light mode */
             border-radius: 18px;
             padding: 25px 30px;
             margin-top: 40px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.3s, color 0.3s;
         }
 
         .info-card:hover {
@@ -181,16 +181,20 @@
             color: #f0f9ff;
         }
 
-        /* ONLY TEXT COLOR CHANGE FOR CONTACT & CONTRIBUTIONS IN DARK MODE */
+        /* DARK MODE: CONTACT & CONTRIBUTIONS BACKGROUND + TEXT */
+        .dark-mode .info-card {
+            background: #1e293b; /* dark blue-gray */
+        }
+
         .dark-mode .info-card h3,
         .dark-mode .info-card p {
             color: #f0f9ff;
         }
 
-        /* HOVER EFFECTS */
+        /* Hover effect for cards */
         .info-card:hover h3,
         .info-card:hover p {
-            color: #1e40af;
+            color: #3b82f6;
         }
     </style>
 </head>
@@ -198,7 +202,7 @@
 
 <!-- TOP BAR -->
 <header class="top-bar">
-    <div class="logo">Reina-L</div>
+    <div class="logo">Reina</div>
     <nav>
         <a href="settings.html" class="nav-btn">Settings</a>
         <a href="index.html" class="nav-btn">Home</a>
@@ -225,7 +229,7 @@
         <!-- Members -->
         <div class="member-card">
             <div class="member-photo">Photo</div>
-            <div class="member-name">Ren Edrian C. Auditor</div>
+            <div class="member-name">Karl David R. Solayao</div>
         </div>
         <div class="member-card">
             <div class="member-photo">Photo</div>
@@ -233,7 +237,7 @@
         </div>
         <div class="member-card">
             <div class="member-photo">Photo</div>
-            <div class="member-name">Karl David R. Solayao</div>
+            <div class="member-name">Ren Edrian C. Auditor</div>
         </div>
         <div class="member-card">
             <div class="member-photo">Photo</div>
@@ -295,3 +299,4 @@
 <script src="applysettings.js"></script>
 </body>
 </html>
+
