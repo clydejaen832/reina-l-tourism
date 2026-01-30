@@ -3,20 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <title>Reina-L Tourist Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== INTRO ANIMATION ===== */
+        .intro-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0f766e, #5eead4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 1s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .intro-content {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .intro-title {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .intro-sub {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Page fade-in after intro */
+        .page-content {
+            opacity: 0;
+            animation: pageFadeIn 1s ease forwards;
+            animation-delay: 2.2s;
+        }
+
+        @keyframes pageFadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .intro-overlay,
+            .intro-content,
+            .page-content {
+                animation: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header class="top-bar">
+<!-- INTRO SCREEN -->
+<div class="intro-overlay" id="intro">
+    <div class="intro-content">
+        <div class="intro-title">REINA-L</div>
+        <div class="intro-sub">Bound by Moonlight</div>
+    </div>
+</div>
+
+<header class="top-bar page-content">
+    <!-- Plain text logo -->
     <div class="logo">Reina-L</div>
-    <nav class="top-buttons">
-        <a href="settings.html" class="top-btn">Settings</a>
-        <a href="credits.html" class="top-btn">Credits</a>
-        <a href="#" class="top-btn">About</a>
+
+    <nav>
+        <a href="settings.html" class="nav-btn">Settings</a>
+        <a href="credits.html" class="nav-btn">Credits</a>
+        <a href="#" class="nav-btn">About</a>
     </nav>
 </header>
 
-<section class="hero">
+<section class="hero page-content">
     <div class="hero-row">
         <button class="hero-side-btn">About Reina-L</button>
 
@@ -29,10 +112,10 @@
     </div>
 </section>
 
-<section class="content">
+<section class="content page-content">
     <h2 class="section-title">Tourist Destinations</h2>
 
-    <div class="card-grid three-cards">
+    <div class="card-grid four-cards">
 
         <div class="card">
             <div class="card-img">Picture Here</div>
@@ -61,10 +144,19 @@
     </div>
 </section>
 
-<footer>
+<footer class="page-content">
     <p>Reina-L Tourist Website | Group 3 – STEM A</p>
 </footer>
 
 <script src="applysettings.js"></script>
+
+<script>
+    // Remove intro after animation
+    setTimeout(() => {
+        const intro = document.getElementById("intro");
+        if (intro) intro.remove();
+    }, 3000);
+</script>
+
 </body>
 </html>
