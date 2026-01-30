@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reina-L Tourist Website</title>
+    <title>Reina Tourist Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
@@ -40,24 +40,14 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+            to { opacity: 0; visibility: hidden; }
         }
 
-        /* Page fade-in after intro */
         .page-content {
             opacity: 0;
             animation: pageFadeIn 1s ease forwards;
@@ -68,13 +58,138 @@
             to { opacity: 1; }
         }
 
-        /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             .intro-overlay,
             .intro-content,
             .page-content {
                 animation: none !important;
             }
+        }
+
+        /* ==========================
+           Top buttons
+        ========================== */
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            padding: 8px 18px;
+            border-radius: 18px;
+            border: none;
+            background: #1e3a8a;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: #3b82f6;
+        }
+
+        /* ==========================
+           HERO COLUMN LAYOUT
+        ========================== */
+        .hero-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .hero-center h1 {
+            font-size: 32px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .hero-side-btn {
+            padding: 12px 28px;
+            border-radius: 24px;
+            border: none;
+            background: white;
+            color: #0f766e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .hero-side-btn:hover {
+            background: #0f766e;
+            color: white;
+        }
+
+        /* ==========================
+           CARDS / DESTINATIONS
+        ========================== */
+        .card-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .four-cards {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: #0f172a;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-img {
+            height: 190px;
+            background: #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #374151;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-body h3 {
+            margin: 0;
+        }
+
+        /* ===== Explore buttons ===== */
+        .primary-btn {
+            padding: 12px;
+            border-radius: 24px;
+            border: none;
+            background: #1e3a8a;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .primary-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #ccc;
         }
     </style>
 </head>
@@ -83,14 +198,13 @@
 <!-- INTRO SCREEN -->
 <div class="intro-overlay" id="intro">
     <div class="intro-content">
-        <div class="intro-title">REINA-L</div>
-        <div class="intro-sub">Bound by Moonlight</div>
+        <div class="intro-title">REINA</div>
+        <div class="intro-sub">Tourist Website</div>
     </div>
 </div>
 
 <header class="top-bar page-content">
-    <!-- Plain text logo -->
-    <div class="logo">Reina-L</div>
+    <div class="logo">Reina</div>
 
     <nav>
         <a href="settings.html" class="nav-btn">Settings</a>
@@ -101,7 +215,7 @@
 
 <section class="hero page-content">
     <div class="hero-row">
-        <button class="hero-side-btn">About Reina-L</button>
+        <button class="hero-side-btn">About Reina</button>
 
         <div class="hero-center">
             <h1>Group 3 – STEM A</h1>
@@ -145,7 +259,7 @@
 </section>
 
 <footer class="page-content">
-    <p>Reina-L Tourist Website | Group 3 – STEM A</p>
+    <p>Reina Tourist Website | Group 3 – STEM A</p>
 </footer>
 
 <script src="applysettings.js"></script>
@@ -160,3 +274,4 @@
 
 </body>
 </html>
+
