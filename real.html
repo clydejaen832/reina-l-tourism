@@ -2,249 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reina | Real, Quezon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
-
-        body {
-            margin: 0;
-            background: #f5f7fa;
-            color: #111827;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        /* ===== TOP BAR ===== */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .nav-btn {
-            padding: 8px 18px;
-            border-radius: 18px;
-            background: #1e3a8a;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .nav-btn:hover {
-            background: #3b82f6;
-        }
-
-        /* ===== PAGE HEADER ===== */
-        .page-header {
-            text-align: center;
-            padding: 70px 20px 40px;
-        }
-
-        .page-header h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
-
-        .page-header p {
-            font-size: 16px;
-            color: #475569;
-        }
-
-        /* ===== TOURIST SECTION ===== */
-        .tourist-section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .spot {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 70px;
-        }
-
-        .spot.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .spot-image {
-            flex: 1;
-            height: 260px;
-            background: #d1d5db;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #374151;
-        }
-
-        .spot-content {
-            flex: 1;
-        }
-
-        .spot-content h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #0f172a;
-        }
-
-        .spot-content p {
-            font-size: 15px;
-            color: #475569;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .explore-btn {
-            padding: 10px 24px;
-            background: #1e3a8a;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .explore-btn:hover {
-            background: #3b82f6;
-        }
-
-        /* ===== PLACEHOLDER STYLE ===== */
-        .placeholder h2 {
-            color: #94a3b8;
-        }
-
-        .placeholder p {
-            color: #9ca3af;
-        }
-
-        .placeholder .explore-btn {
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 800px) {
-            .spot,
-            .spot.reverse {
-                flex-direction: column;
-            }
-        }
-
-        /* ===== DARK MODE ===== */
-        .dark-mode {
-            background: #111827;
-            color: #e5e7eb;
-        }
-
-        .dark-mode .top-bar {
-            background: #1f2937;
-        }
-
-        .dark-mode .page-header h1,
-        .dark-mode .spot-content h2 {
-            color: #f0f9ff;
-        }
-
-        .dark-mode .page-header p,
-        .dark-mode .spot-content p {
-            color: #cbd5f5;
-        }
-
-        .dark-mode .spot-image {
-            background: #374151;
-            color: #e5e7eb;
-        }
-    </style>
+    <title>Real | Tourist Spots</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP BAR -->
 <header class="top-bar">
     <div class="logo">Reina-L</div>
-    <a href="index.html" class="nav-btn">Home</a>
+    <nav>
+        <a href="index.html" class="nav-btn back-btn">← Back</a>
+    </nav>
 </header>
 
-<!-- HEADER -->
-<section class="page-header">
+<section class="municipality-header">
     <h1>Real, Quezon</h1>
-    <p>Natural beauty through waterfalls and rivers</p>
+    <p>Discover nature, rivers, and hidden waterfalls</p>
 </section>
 
-<!-- TOURIST SPOTS -->
-<section class="tourist-section">
+<section class="spots">
 
     <!-- 1 -->
-    <div class="spot">
-        <div class="spot-image">Nonok Falls</div>
-        <div class="spot-content">
+    <div class="spot fade-section">
+        <div class="spot-img">
+            <img src="images/nonok-falls.jpg" alt="Nonok Falls">
+        </div>
+        <div class="spot-info">
             <h2>Nonok Falls</h2>
-            <p>A peaceful waterfall surrounded by lush greenery, ideal for swimming and relaxing nature trips.</p>
-            <a href="#" class="explore-btn">Explore</a>
+            <p>A peaceful waterfall surrounded by lush forest.</p>
+            <button class="explore-btn">Explore</button>
         </div>
     </div>
 
-    <!-- 2 -->
-    <div class="spot reverse">
-        <div class="spot-image">Balagbag Falls</div>
-        <div class="spot-content">
+    <!-- 2 (reversed) -->
+    <div class="spot reverse fade-section">
+        <div class="spot-img">
+            <img src="images/balagbag-falls.jpg" alt="Balagbag Falls">
+        </div>
+        <div class="spot-info">
             <h2>Balagbag Falls</h2>
-            <p>A hidden gem known for its cool waters and refreshing atmosphere, perfect for adventure lovers.</p>
-            <a href="#" class="explore-btn">Explore</a>
+            <p>A hidden gem with refreshing waters and calm scenery.</p>
+            <button class="explore-btn">Explore</button>
         </div>
     </div>
 
     <!-- 3 -->
-    <div class="spot">
-        <div class="spot-image">Casa Luna River Garden</div>
-        <div class="spot-content">
+    <div class="spot fade-section">
+        <div class="spot-img">
+            <img src="images/casa-luna.jpg" alt="Casa Luna River Garden">
+        </div>
+        <div class="spot-info">
             <h2>Casa Luna River Garden</h2>
-            <p>A tranquil riverside destination featuring stone pathways, clear waters, and relaxing scenery.</p>
-            <a href="#" class="explore-btn">Explore</a>
-        </div>
-    </div>
-
-    <!-- 4 (Placeholder) -->
-    <div class="spot reverse placeholder">
-        <div class="spot-image">Coming Soon</div>
-        <div class="spot-content">
-            <h2>Tourist Spot</h2>
-            <p>This destination will be added soon.</p>
-            <a href="#" class="explore-btn">Explore</a>
-        </div>
-    </div>
-
-    <!-- 5 (Placeholder) -->
-    <div class="spot placeholder">
-        <div class="spot-image">Coming Soon</div>
-        <div class="spot-content">
-            <h2>Tourist Spot</h2>
-            <p>This destination will be added soon.</p>
-            <a href="#" class="explore-btn">Explore</a>
+            <p>A scenic riverside destination perfect for relaxation.</p>
+            <button class="explore-btn">Explore</button>
         </div>
     </div>
 
 </section>
 
-<!-- SETTINGS SUPPORT -->
-<script src="applysettings.js"></script>
-
+<script src="scrollFade.js"></script>
 </body>
 </html>
 
