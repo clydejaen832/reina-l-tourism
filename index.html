@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reina Tourist Website</title>
+    <title>TouReina Tourist Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
@@ -66,9 +66,6 @@
             }
         }
 
-        /* ==========================
-           Top buttons
-        ========================== */
         nav {
             display: flex;
             gap: 12px;
@@ -77,12 +74,9 @@
         .nav-btn {
             padding: 8px 18px;
             border-radius: 18px;
-            border: none;
             background: #1e3a8a;
             color: white;
             font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
             text-decoration: none;
         }
 
@@ -90,9 +84,6 @@
             background: #3b82f6;
         }
 
-        /* ==========================
-           HERO COLUMN LAYOUT
-        ========================== */
         .hero-row {
             display: flex;
             flex-direction: column;
@@ -109,12 +100,10 @@
         .hero-side-btn {
             padding: 12px 28px;
             border-radius: 24px;
-            border: none;
             background: white;
             color: #0f766e;
             font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+            border: none;
         }
 
         .hero-side-btn:hover {
@@ -122,9 +111,6 @@
             color: white;
         }
 
-        /* ==========================
-           CARDS / DESTINATIONS
-        ========================== */
         .card-grid {
             display: grid;
             gap: 30px;
@@ -142,7 +128,6 @@
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .card-img {
@@ -162,40 +147,37 @@
             gap: 12px;
         }
 
-        .card-body h3 {
-            margin: 0;
-        }
-
-        /* ===== Explore buttons ===== */
         .primary-btn {
             padding: 12px;
             border-radius: 24px;
-            border: none;
             background: #1e3a8a;
             color: white;
             font-weight: bold;
+            border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            text-align: center;
         }
 
         .primary-btn:hover {
             background: #3b82f6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 20px;
             background: #111;
             color: #ccc;
         }
+
+        /* remove underline from link buttons */
+        .btn-link {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
-<!-- INTRO SCREEN -->
+<!-- INTRO -->
 <div class="intro-overlay" id="intro">
     <div class="intro-content">
         <div class="intro-title">REINA</div>
@@ -205,7 +187,6 @@
 
 <header class="top-bar page-content">
     <div class="logo">Reina</div>
-
     <nav>
         <a href="settings.html" class="nav-btn">Settings</a>
         <a href="credits.html" class="nav-btn">Credits</a>
@@ -231,27 +212,36 @@
 
     <div class="card-grid four-cards">
 
+        <!-- REAL -->
         <div class="card">
             <div class="card-img">Picture Here</div>
             <div class="card-body">
                 <h3>Real</h3>
-                <button class="primary-btn">Explore</button>
+                <a href="real.html" class="btn-link">
+                    <div class="primary-btn">Explore</div>
+                </a>
             </div>
         </div>
 
+        <!-- INFANTA -->
         <div class="card">
             <div class="card-img">Picture Here</div>
             <div class="card-body">
                 <h3>Infanta</h3>
-                <button class="primary-btn">Explore</button>
+                <a href="infanta.html" class="btn-link">
+                    <div class="primary-btn">Explore</div>
+                </a>
             </div>
         </div>
 
+        <!-- NAKAR -->
         <div class="card">
             <div class="card-img">Picture Here</div>
             <div class="card-body">
                 <h3>Nakar</h3>
-                <button class="primary-btn">Explore</button>
+                <a href="nakar.html" class="btn-link">
+                    <div class="primary-btn">Explore</div>
+                </a>
             </div>
         </div>
 
@@ -265,7 +255,6 @@
 <script src="applysettings.js"></script>
 
 <script>
-    // Remove intro after animation
     setTimeout(() => {
         const intro = document.getElementById("intro");
         if (intro) intro.remove();
