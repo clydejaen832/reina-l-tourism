@@ -60,6 +60,15 @@ body {
     display: none;
 }
 
+/* ================= BANNER + INFO CONTAINER ================= */
+.banner-info-container {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
 /* ================= BANNER ================= */
 .banner {
     height: 120px;
@@ -83,8 +92,6 @@ body {
     padding: 14px 40px;
     background: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
     z-index: 100;
 }
 
@@ -117,9 +124,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     gap: 40px;
-    padding: 70px 60px;
-    max-width: 1200px;
-    margin: auto;
+    padding: 20px 60px;
     align-items: center;
 }
 
@@ -222,8 +227,7 @@ footer {
         text-align: center;
     }
 
-    .municipality,
-    .municipality.reverse {
+    .municipality, .municipality.reverse {
         flex-direction: column;
     }
 }
@@ -235,49 +239,50 @@ footer {
 <div class="intro">
     <div class="jeep">
         <span style="--i:1">T</span>
-        <span style="--i:2">o</span>
-        <span style="--i:3">u</span>
+        <span style="--i:2">O</span>
+        <span style="--i:3">U</span>
         <span style="--i:4">R</span>
-        <span style="--i:5">e</span>
-        <span style="--i:6">i</span>
-        <span style="--i:7">n</span>
-        <span style="--i:8">a</span>
+        <span style="--i:5">E</span>
+        <span style="--i:6">I</span>
+        <span style="--i:7">N</span>
+        <span style="--i:8">A</span>
         <span style="margin-left:10px"></span>
     </div>
 </div>
 
-<!-- BANNER -->
-<div class="banner">
-    <div class="banner-placeholder">[ PLACE GROUP BANNER IMAGE HERE ]</div>
+<!-- BANNER + INFO STRIP -->
+<div class="banner-info-container">
+    <div class="banner">
+        <div class="banner-placeholder">[ PLACE GROUP BANNER IMAGE HERE ]</div>
+    </div>
+
+    <section class="info-strip fade">
+        <div class="info-box">
+            <strong>Significance of the Website</strong><br>
+            A digital tourism guide promoting the beauty, culture, and destinations of Quezon.
+        </div>
+
+        <div class="center-box">
+            11 STEM A – Group 3
+        </div>
+
+        <div class="info-box">
+            <strong>About This Website</strong><br>
+            TouReina helps travelers explore municipalities through curated tourist spots.
+        </div>
+    </section>
+
+    <!-- NAV -->
+    <header class="top-bar">
+        <div class="logo">TOUREINA</div>
+        <nav>
+            <a href="significance.html" class="nav-btn">Significance</a>
+            <a href="about.html" class="nav-btn">About</a>
+            <a href="settings.html" class="nav-btn">Settings</a>
+            <a href="credits.html" class="nav-btn">Credits</a>
+        </nav>
+    </header>
 </div>
-
-<!-- NAV -->
-<header class="top-bar">
-    <div class="logo">TOUREINA</div>
-    <nav>
-        <a href="significance.html" class="nav-btn">Significance</a>
-        <a href="about.html" class="nav-btn">About</a>
-        <a href="settings.html" class="nav-btn">Settings</a>
-        <a href="credits.html" class="nav-btn">Credits</a>
-    </nav>
-</header>
-
-<!-- INFO STRIP -->
-<section class="info-strip fade">
-    <div class="info-box">
-        <strong>Significance of the Website</strong><br>
-        A digital tourism guide promoting the beauty, culture, and destinations of Quezon.
-    </div>
-
-    <div class="center-box">
-        11 STEM A – Group 3
-    </div>
-
-    <div class="info-box">
-        <strong>About This Website</strong><br>
-        TouReina helps travelers explore municipalities through curated tourist spots.
-    </div>
-</section>
 
 <!-- MUNICIPALITIES -->
 <section class="content">
@@ -316,7 +321,6 @@ footer {
 </footer>
 
 <script src="applysettings.js"></script>
-
 <script>
 /* Scroll fade */
 const fades = document.querySelectorAll('.fade');
@@ -326,7 +330,7 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.75 });
 
 fades.forEach(el => observer.observe(el));
 
