@@ -1,49 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TouReina Tourist Website</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>TouReina Tourist Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #111827;
+        }
+
+        /* ================= INTRO JEEP ANIMATION ================= */
+        .intro {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .jeep {
+            display: flex;
+            align-items: center;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            animation: driveOff 2.2s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .jeep span {
+            display: inline-block;
+            animation: assemble 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .jeep span:nth-child(1) { animation-delay: 0.1s }
+        .jeep span:nth-child(2) { animation-delay: 0.2s }
+        .jeep span:nth-child(3) { animation-delay: 0.3s }
+        .jeep span:nth-child(4) { animation-delay: 0.4s }
+        .jeep span:nth-child(5) { animation-delay: 0.5s }
+        .jeep span:nth-child(6) { animation-delay: 0.6s }
+        .jeep span:nth-child(7) { animation-delay: 0.7s }
+        .jeep span:nth-child(8) { animation-delay: 0.8s }
+
+        .wheel {
+            font-size: 36px;
+            margin-left: 12px;
+        }
+
+        @keyframes assemble {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes driveOff {
+            to {
+                transform: translateX(120vw);
+                opacity: 0;
+            }
+        }
+
+        /* Reduced motion */
+        .reduced-motion .intro {
+            display: none;
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            padding: 8px 18px;
+            border-radius: 18px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            background: #3b82f6;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            padding: 90px 20px 70px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #475569;
+            max-width: 620px;
+            margin: auto;
+        }
+
+        /* ================= CONTENT ================= */
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* ================= MUNICIPALITIES ================= */
+        .municipality {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .municipality.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .municipality img {
+            width: 100%;
+            max-width: 520px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #e5e7eb;
+        }
+
+        .municipality-content h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .municipality-content p {
+            color: #475569;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .explore-btn {
+            padding: 10px 26px;
+            border-radius: 22px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .explore-btn:hover {
+            background: #3b82f6;
+        }
+
+        /* ================= SCROLL FADE ================= */
+        .fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reduced-motion .fade {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        @media (max-width: 900px) {
+            .municipality,
+            .municipality.reverse {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <!-- INTRO -->
 <div class="intro">
     <div class="jeep">
-        <span style="--i:1">T</span>
-        <span style="--i:2">O</span>
-        <span style="--i:3">U</span>
-        <span style="--i:4">R</span>
-        <span style="--i:5">E</span>
-        <span style="--i:6">I</span>
-        <span style="--i:7">N</span>
-        <span style="--i:8">A</span>
+        <span>T</span><span>O</span><span>U</span><span>R</span>
+        <span>E</span><span>I</span><span>N</span><span>A</span>
+        <span class="wheel">🛞🛞</span>
     </div>
 </div>
 
-<!-- NAV -->
 <header class="top-bar">
     <div class="logo">TOUREINA</div>
     <nav>
         <a href="settings.html" class="nav-btn">Settings</a>
-        <a href="significance.html" class="nav-btn">Significance</a>
         <a href="credits.html" class="nav-btn">Credits</a>
         <a href="about.html" class="nav-btn">About</a>
     </nav>
 </header>
 
-<!-- BANNER -->
-<div class="banner">
-    <div class="banner-placeholder">[ PLACE GROUP BANNER IMAGE HERE ]</div>
-</div>
+<section class="hero fade">
+    <h1>Explore TouReina</h1>
+    <p>A tourism guide showcasing the beauty of Real, Infanta, and Nakar.</p>
+</section>
 
-<!-- INFO CENTER -->
-<div class="info-center fade">
-    11 STEM A – Group 3
-</div>
-
-<!-- MUNICIPALITIES -->
 <section class="content">
     <h2 class="section-title fade">Municipalities</h2>
 
@@ -60,48 +267,44 @@
         <img src="images/infanta.jpg" alt="Infanta">
         <div class="municipality-content">
             <h2>Infanta</h2>
-            <p>Bridges, waterfalls, and eco-adventure destinations.</p>
-            <a href="#" class="explore-btn">Coming Soon</a>
+            <p>A coastal town rich in culture, beaches, and scenic views.</p>
+            <a href="infanta.html" class="explore-btn">Explore</a>
         </div>
     </div>
 
     <div class="municipality fade">
-        <img src="images/nakar.jpg" alt="General Nakar">
+        <img src="images/nakar.jpg" alt="Nakar">
         <div class="municipality-content">
-            <h2>General Nakar</h2>
-            <p>Untouched landscapes and Sierra Madre adventures.</p>
-            <a href="#" class="explore-btn">Coming Soon</a>
+            <h2>Nakar</h2>
+            <p>Eco-tourism, rivers, and protected natural landscapes.</p>
+            <a href="nakar.html" class="explore-btn">Explore</a>
         </div>
     </div>
 </section>
 
 <footer>
-    TouReina Tourist Website • 11 STEM A – Group 3
+    TouReina Tourist Website • Group 3 – STEM A
 </footer>
 
 <script src="applysettings.js"></script>
+
 <script>
-/* ================= INTRO ANIMATION ================= */
-setTimeout(() => {
-    document.querySelector('.intro')?.remove();
-}, 4200);
+    // Scroll fade
+    const fades = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15 });
 
-/* ================= SCROLL FADE ================= */
-const fades = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        } else {
-            entry.target.classList.remove('visible');
-        }
-    });
-}, { threshold: 0.25 });
+    fades.forEach(el => observer.observe(el));
 
-fades.forEach(el => observer.observe(el));
-
-/* ================= APPLY USER SETTINGS ================= */
-applySettings();
+    // Remove intro after animation
+    setTimeout(() => {
+        const intro = document.querySelector('.intro');
+        if (intro) intro.remove();
+    }, 4200);
 </script>
+
 </body>
 </html>
