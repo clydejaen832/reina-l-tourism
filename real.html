@@ -77,7 +77,6 @@
             gap: 40px;
             margin-bottom: 70px;
 
-            /* animation base state */
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -87,7 +86,6 @@
             flex-direction: row-reverse;
         }
 
-        /* visible state */
         .spot.show {
             opacity: 1;
             transform: translateY(0);
@@ -103,6 +101,7 @@
             justify-content: center;
             font-weight: bold;
             color: #374151;
+            overflow: hidden;
         }
 
         .spot-content {
@@ -210,12 +209,16 @@
         </div>
     </div>
 
+    <!-- UPDATED BALAGBAG FALLS -->
     <div class="spot reverse">
-        <div class="spot-image">Balagbag Falls</div>
+        <div class="spot-image">
+            <img src="Balagbag.jpg" alt="Balagbag Falls"
+                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+        </div>
         <div class="spot-content">
             <h2>Balagbag Falls</h2>
             <p>A hidden gem known for its cool waters and refreshing atmosphere, perfect for adventure lovers.</p>
-            <a href="#" class="explore-btn">Explore</a>
+            <a href="Balagbag.html" class="explore-btn">Explore</a>
         </div>
     </div>
 
