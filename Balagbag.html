@@ -15,7 +15,6 @@
             margin: 0;
             background: #f5f7fa;
             color: #111827;
-            transition: background 0.3s, color 0.3s;
         }
 
         /* ===== TOP BAR ===== */
@@ -42,21 +41,23 @@
             font-weight: bold;
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HERO ===== */
         .hero {
             text-align: center;
-            padding: 80px 20px 50px;
+            padding: 90px 20px 60px;
         }
 
         .hero h1 {
             font-size: 42px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .hero p {
-            color: #475569;
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         /* ===== CONTENT ===== */
@@ -67,7 +68,10 @@
         }
 
         .section {
-            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 90px;
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s ease;
@@ -78,55 +82,50 @@
             transform: translateY(0);
         }
 
-        .section h2 {
+        .section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 480px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text h2 {
             font-size: 30px;
             margin-bottom: 15px;
         }
 
-        .section p,
-        .section li {
+        .text p {
             color: #475569;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 15px;
         }
 
-        /* ===== IMAGE GALLERY ===== */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-top: 25px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 16px;
-        }
-
-        /* ===== INFO GRID ===== */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .info-box {
-            background: white;
-            padding: 25px;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .info-box h3 {
-            margin-bottom: 10px;
+        ul {
+            padding-left: 18px;
+            color: #475569;
+            line-height: 1.8;
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 34px;
+        @media (max-width: 850px) {
+            .section,
+            .section.reverse {
+                flex-direction: column;
+            }
+
+            .section img {
+                max-width: 100%;
+                height: 260px;
             }
         }
     </style>
@@ -142,90 +141,80 @@
 <!-- HERO -->
 <section class="hero">
     <h1>Balagbag Falls</h1>
-    <p>A two-tiered waterfall in Real, Quezon known for its clear mountain waters, natural pools, and scenic views.</p>
+    <p>
+        Balagbag Falls is one of the most visited natural attractions in Real, Quezon, known for its refreshing
+        mountain waters, scenic surroundings, and easy accessibility along the Real–Infanta Road.
+    </p>
 </section>
 
 <div class="container">
 
     <!-- OVERVIEW -->
     <section class="section">
-        <h2>Overview</h2>
-        <p>
-            Balagbag Falls is a popular tourist destination in Real, Quezon, featuring cold and clear water flowing
-            from the Sierra Madre Mountains. The lower tier has a natural pool ideal for swimming and cliff jumping,
-            while the upper tier provides a peaceful area for sightseeing and relaxation.
-        </p>
-
-        <div class="gallery">
-            <img src="Balagbag1.jpg">
-            <img src="Balagbag2.jpg">
-            <img src="Balagbag3.jpg">
-            <img src="Balagbag4.jpg">
-            <img src="Balagbag5.jpg">
+        <img src="Balagbag1.jpg" alt="Balagbag Falls">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>
+                Balagbag Falls is a naturally formed two-tiered waterfall flowing from the Sierra Madre Mountains.
+                Its lower tier features a clear natural pool that is ideal for swimming and cliff jumping, while
+                the upper tier offers a calmer space where visitors can relax and enjoy the surrounding forested
+                landscape. Due to its proximity to the main highway, the falls attract both tourists and locals
+                seeking a quick nature escape.
+            </p>
         </div>
     </section>
 
-    <!-- DETAILS -->
+    <!-- LOCATION -->
+    <section class="section reverse">
+        <img src="Balagbag2.jpg" alt="Location of Balagbag Falls">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>
+                The falls are located in Barangay Malapad, Real, Quezon, near the Real–Infanta Road and within the
+                foothills of the Sierra Madre Mountain range. Visitors can reach the area using private vehicles
+                or public transportation. From the drop-off point, a short five-minute walk leads directly to the
+                lower tier of the waterfall, making it one of the most accessible waterfalls in the municipality.
+            </p>
+        </div>
+    </section>
+
+    <!-- NATURAL FEATURES -->
     <section class="section">
-        <h2>Location & Accessibility</h2>
-
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>📍 Location</h3>
-                <p>Barangay Malapad, Real, Quezon, along the Real–Infanta Road near the Sierra Madre Mountains.</p>
-            </div>
-
-            <div class="info-box">
-                <h3>🚗 Accessibility</h3>
-                <p>Accessible via private vehicles or public transportation. A 5-minute walk leads to the falls.</p>
-            </div>
-
-            <div class="info-box">
-                <h3>🌿 Natural Features</h3>
-                <p>Two-tiered waterfall, rocky terrain, natural pool, clear mountain water, and lush vegetation.</p>
-            </div>
+        <img src="Balagbag3.jpg" alt="Natural features of Balagbag Falls">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>
+                Balagbag Falls consists of two cascading levels surrounded by rocky terrain and lush tropical
+                vegetation. The lower tier forms a natural pool approximately five meters deep, while the upper
+                tier provides elevated views of the surrounding mountains. The water remains cold and clear
+                throughout the year, especially during the dry season.
+            </p>
         </div>
     </section>
 
     <!-- TOURISM -->
-    <section class="section">
-        <h2>Tourism Information</h2>
+    <section class="section reverse">
+        <img src="Balagbag4.jpg" alt="Activities at Balagbag Falls">
+        <div class="text">
+            <h2>Tourism & Visitor Information</h2>
+            <p>
+                Balagbag Falls offers various recreational activities for visitors of all ages. The area is
+                commonly used for swimming, sightseeing, hiking, photography, and relaxation. Basic facilities
+                such as shaded resting areas and picnic spots are available near the site. A minimal entrance
+                fee may be collected to help maintain cleanliness and safety.
+            </p>
 
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>🎒 Activities</h3>
-                <ul>
-                    <li>Swimming</li>
-                    <li>Cliff jumping</li>
-                    <li>Hiking</li>
-                    <li>Photography</li>
-                </ul>
-            </div>
-
-            <div class="info-box">
-                <h3>💰 Fees & Rules</h3>
-                <p>Minimal entrance fee may apply. Visitors are encouraged to follow safety and cleanliness rules.</p>
-            </div>
-
-            <div class="info-box">
-                <h3>☀️ Best Time to Visit</h3>
-                <p>Dry season from November to May for safer access and better swimming conditions.</p>
-            </div>
+            <ul>
+                <li>Best time to visit: November to May (dry season)</li>
+                <li>Observe safety precautions on slippery rocks</li>
+                <li>Practice proper waste disposal and environmental care</li>
+            </ul>
         </div>
-    </section>
-
-    <!-- SIGNIFICANCE -->
-    <section class="section">
-        <h2>Cultural & Environmental Significance</h2>
-        <p>
-            Balagbag Falls is part of the natural heritage of Real, Quezon. It serves as a recreational area for locals
-            and promotes eco-tourism and awareness of the biodiversity of the Sierra Madre Mountains.
-        </p>
     </section>
 
 </div>
 
-<!-- SCROLL REVEAL -->
+<!-- SCROLL ANIMATION -->
 <script>
     const sections = document.querySelectorAll('.section');
 
@@ -239,8 +228,9 @@
         threshold: 0.75
     });
 
-    sections.forEach(sec => observer.observe(sec));
+    sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
 </html>
+
