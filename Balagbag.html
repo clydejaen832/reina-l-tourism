@@ -15,6 +15,7 @@
             margin: 0;
             background: #f5f7fa;
             color: #111827;
+            transition: background 0.3s, color 0.3s;
         }
 
         /* ===== TOP BAR ===== */
@@ -25,6 +26,7 @@
             padding: 15px 40px;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.3s;
         }
 
         .logo {
@@ -128,6 +130,27 @@
                 height: 260px;
             }
         }
+
+        /* ===== DARK MODE SUPPORT ===== */
+        .dark-mode {
+            background: #111827;
+            color: #e5e7eb;
+        }
+
+        .dark-mode .top-bar {
+            background: #1f2937;
+        }
+
+        .dark-mode .hero p,
+        .dark-mode .text p,
+        .dark-mode ul {
+            color: #cbd5f5;
+        }
+
+        .dark-mode .hero h1,
+        .dark-mode .text h2 {
+            color: #f0f9ff;
+        }
     </style>
 </head>
 <body>
@@ -149,72 +172,65 @@
 
 <div class="container">
 
-    <!-- OVERVIEW -->
     <section class="section">
         <img src="Balagbag1.jpg" alt="Balagbag Falls">
         <div class="text">
             <h2>Overview</h2>
             <p>
                 Balagbag Falls is a naturally formed two-tiered waterfall flowing from the Sierra Madre Mountains.
-                Its lower tier features a clear natural pool that is ideal for swimming and cliff jumping, while
-                the upper tier offers a calmer space where visitors can relax and enjoy the surrounding forested
-                landscape. Due to its proximity to the main highway, the falls attract both tourists and locals
-                seeking a quick nature escape.
+                Its lower tier features a clear natural pool ideal for swimming and cliff jumping, while the upper
+                tier offers a calm space for relaxation and scenic views.
             </p>
         </div>
     </section>
 
-    <!-- LOCATION -->
     <section class="section reverse">
         <img src="Balagbag2.jpg" alt="Location of Balagbag Falls">
         <div class="text">
             <h2>Location & Accessibility</h2>
             <p>
-                The falls are located in Barangay Malapad, Real, Quezon, near the Real–Infanta Road and within the
-                foothills of the Sierra Madre Mountain range. Visitors can reach the area using private vehicles
-                or public transportation. From the drop-off point, a short five-minute walk leads directly to the
-                lower tier of the waterfall, making it one of the most accessible waterfalls in the municipality.
+                Located in Barangay Malapad, Real, Quezon, Balagbag Falls is easily reached via private or public
+                transport. A short five-minute walk from the drop-off point leads directly to the waterfall.
             </p>
         </div>
     </section>
 
-    <!-- NATURAL FEATURES -->
     <section class="section">
         <img src="Balagbag3.jpg" alt="Natural features of Balagbag Falls">
         <div class="text">
             <h2>Geography & Natural Features</h2>
             <p>
-                Balagbag Falls consists of two cascading levels surrounded by rocky terrain and lush tropical
-                vegetation. The lower tier forms a natural pool approximately five meters deep, while the upper
-                tier provides elevated views of the surrounding mountains. The water remains cold and clear
-                throughout the year, especially during the dry season.
+                The waterfall has two tiers, rocky terrain, lush vegetation, and cold clear water year-round.
+                The upper tier offers panoramic views of the surrounding forested mountains.
             </p>
         </div>
     </section>
 
-    <!-- TOURISM -->
     <section class="section reverse">
         <img src="Balagbag4.jpg" alt="Activities at Balagbag Falls">
         <div class="text">
             <h2>Tourism & Visitor Information</h2>
             <p>
-                Balagbag Falls offers various recreational activities for visitors of all ages. The area is
-                commonly used for swimming, sightseeing, hiking, photography, and relaxation. Basic facilities
-                such as shaded resting areas and picnic spots are available near the site. A minimal entrance
-                fee may be collected to help maintain cleanliness and safety.
+                Visitors enjoy swimming, hiking, sightseeing, and photography. Basic amenities are available,
+                and a minimal entrance fee helps support maintenance and safety.
             </p>
-
             <ul>
-                <li>Best time to visit: November to May (dry season)</li>
-                <li>Observe safety precautions on slippery rocks</li>
-                <li>Practice proper waste disposal and environmental care</li>
+                <li>Best time to visit: November–May</li>
+                <li>Be cautious on slippery rocks</li>
+                <li>Practice environmental responsibility</li>
             </ul>
         </div>
     </section>
 
 </div>
 
-<!-- SCROLL ANIMATION -->
+<!-- SETTINGS SUPPORT -->
+<script src="applysettings.js"></script>
+<script>
+    applySettings();
+</script>
+
+<!-- SCROLL FADE ANIMATION -->
 <script>
     const sections = document.querySelectorAll('.section');
 
@@ -233,4 +249,5 @@
 
 </body>
 </html>
+
 
