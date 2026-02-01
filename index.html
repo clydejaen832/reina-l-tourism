@@ -2,317 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TouReina Tourist Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
-
-        body {
-            margin: 0;
-            background: #ffffff;
-            color: #111827;
-        }
-
-        /* ================= INTRO JEEP ================= */
-        .intro {
-            position: fixed;
-            inset: 0;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        .jeep {
-            display: flex;
-            align-items: center;
-            font-size: 48px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            animation: driveOff 2.2s ease forwards;
-            animation-delay: 2s;
-        }
-
-        .jeep span {
-            display: inline-block;
-            animation: assemble 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        .jeep span:nth-child(n) {
-            animation-delay: calc(0.1s * var(--i));
-        }
-
-        .wheel {
-            font-size: 34px;
-            margin-left: 12px;
-        }
-
-        @keyframes assemble {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes driveOff {
-            to { transform: translateX(120vw); opacity: 0; }
-        }
-
-        .reduced-motion .intro { display: none; }
-
-        /* ================= TOP BAR ================= */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        nav {
-            display: flex;
-            gap: 12px;
-        }
-
-        .nav-btn {
-            padding: 8px 18px;
-            border-radius: 18px;
-            background: #1e3a8a;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .nav-btn:hover {
-            background: #3b82f6;
-            transform: translateY(-1px);
-        }
-
-        /* ================= HERO ================= */
-        .hero {
-            padding: 110px 20px 90px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 30px;
-            width: 60px;
-            height: 4px;
-            background: #1e3a8a;
-            transform: translateX(-50%);
-            border-radius: 4px;
-        }
-
-        .hero h1 {
-            font-size: 44px;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            color: #475569;
-            max-width: 640px;
-            margin: auto;
-            font-size: 17px;
-        }
-
-        /* ================= CONTENT ================= */
-        .content {
-            max-width: 1200px;
-            margin: auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            font-size: 30px;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        /* ================= MUNICIPALITY CARDS ================= */
-        .municipality {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            margin-bottom: 90px;
-            padding: 40px;
-            border-radius: 28px;
-            background: #f8fafc;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .municipality.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .municipality img {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 22px;
-            background: #e5e7eb;
-        }
-
-        .municipality-content h2 {
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
-
-        .municipality-content p {
-            color: #475569;
-            margin-bottom: 26px;
-            line-height: 1.7;
-        }
-
-        .explore-btn {
-            padding: 12px 30px;
-            border-radius: 24px;
-            background: #1e3a8a;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            display: inline-block;
-        }
-
-        .explore-btn:hover {
-            background: #3b82f6;
-            transform: translateY(-2px);
-        }
-
-        /* ================= SCROLL FADE ================= */
-        .fade {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reduced-motion .fade {
-            opacity: 1 !important;
-            transform: none !important;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        @media (max-width: 900px) {
-            .municipality,
-            .municipality.reverse {
-                flex-direction: column;
-                padding: 30px;
-            }
-        }
-    </style>
+    <title>TouReina</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- INTRO -->
-<div class="intro">
-    <div class="jeep">
-        <span style="--i:1">T</span><span style="--i:2">O</span><span style="--i:3">U</span><span style="--i:4">R</span>
-        <span style="--i:5">E</span><span style="--i:6">I</span><span style="--i:7">N</span><span style="--i:8">A</span>
-        <span class="wheel"></span>
-    </div>
-</div>
+<header class="hero">
+    <h1 class="logo">Tou<span>Reina</span></h1>
+    <p class="tagline">Explore the Beauty of Quezon</p>
 
-<header class="top-bar">
-    <div class="logo">TOUREINA</div>
-    <nav>
-        <a href="settings.html" class="nav-btn">Settings</a>
-        <a href="credits.html" class="nav-btn">Credits</a>
-        <a href="about.html" class="nav-btn">About</a>
-    </nav>
+    <div class="top-buttons">
+        <button onclick="openPage('about.html')">About</button>
+        <button onclick="openPage('significance.html')">Significance</button>
+        <button onclick="openPage('settings.html')">Settings</button>
+        <button onclick="openPage('credits.html')">Credits</button>
+    </div>
 </header>
 
-<section class="hero fade">
-    <h1>Explore TouReina</h1>
-    <p>A tourism guide showcasing the beauty, culture, and nature of Real, Infanta, and Nakar.</p>
-</section>
-
-<section class="content">
-    <h2 class="section-title fade">Municipalities</h2>
+<section class="municipalities">
 
     <div class="municipality fade">
-        <img src="images/real.jpg" alt="Real">
-        <div class="municipality-content">
+        <img src="images/real.jpg" alt="Real, Quezon">
+        <div class="info">
             <h2>Real</h2>
-            <p>Known for waterfalls, rivers, and eco-adventures surrounded by lush mountain landscapes.</p>
-            <a href="real.html" class="explore-btn">Explore</a>
+            <p>A coastal municipality known for waterfalls, rivers, and serene nature escapes.</p>
+            <button onclick="openPage('real.html')">Explore</button>
         </div>
     </div>
 
     <div class="municipality reverse fade">
-        <img src="images/infanta.jpg" alt="Infanta">
-        <div class="municipality-content">
+        <img src="images/infanta.jpg" alt="Infanta, Quezon">
+        <div class="info">
             <h2>Infanta</h2>
-            <p>A coastal municipality rich in fishing culture, beaches, and scenic seaside views.</p>
-            <a href="infanta.html" class="explore-btn">Explore</a>
+            <p>Home to breathtaking waterfalls, bridges, and eco-adventure destinations.</p>
+            <button disabled>Coming Soon</button>
         </div>
     </div>
 
     <div class="municipality fade">
-        <img src="images/nakar.jpg" alt="Nakar">
-        <div class="municipality-content">
-            <h2>Nakar</h2>
-            <p>Home to protected forests, rivers, and eco-tourism destinations.</p>
-            <a href="nakar.html" class="explore-btn">Explore</a>
+        <img src="images/general_nakar.jpg" alt="General Nakar">
+        <div class="info">
+            <h2>General Nakar</h2>
+            <p>A gateway to Sierra Madre mountains and untouched natural beauty.</p>
+            <button disabled>Coming Soon</button>
         </div>
     </div>
+
 </section>
 
-<footer>
-    TouReina Tourist Website • Group 3 – STEM A
-</footer>
-
-<script src="applysettings.js"></script>
-
-<script>
-    // Scroll fade
-    const fades = document.querySelectorAll('.fade');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.15 });
-
-    fades.forEach(el => observer.observe(el));
-
-    // Remove intro
-    setTimeout(() => {
-        const intro = document.querySelector('.intro');
-        if (intro) intro.remove();
-    }, 4200);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
