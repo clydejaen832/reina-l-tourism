@@ -4,212 +4,7 @@
 <meta charset="UTF-8">
 <title>TouReina Tourist Website</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-}
-
-body {
-    margin: 0;
-    background: #ffffff;
-    color: #111827;
-}
-
-/* ================= INTRO JEEP ================= */
-.intro {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.jeep {
-    font-size: 48px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    display: flex;
-    align-items: center;
-    animation: driveOff 2s ease forwards;
-    animation-delay: 2s;
-}
-
-.jeep span {
-    opacity: 0;
-    animation: assemble 0.6s ease forwards;
-}
-
-.jeep span:nth-child(n) {
-    animation-delay: calc(var(--i) * 0.1s);
-}
-
-@keyframes assemble {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes driveOff {
-    to { transform: translateX(120vw); opacity: 0; }
-}
-
-.reduced-motion .intro {
-    display: none;
-}
-
-/* ================= NAV BAR ================= */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 40px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    z-index: 100;
-    position: relative; /* MOVABLE, scrolls with page */
-}
-
-.logo {
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-nav {
-    display: flex;
-    gap: 12px;
-}
-
-.nav-btn {
-    padding: 8px 18px;
-    border-radius: 18px;
-    background: #1e3a8a;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-btn:hover {
-    background: #3b82f6;
-}
-
-/* ================= BANNER ================= */
-.banner {
-    height: 200px; /* banner height */
-    background: #1e3a8a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-
-.banner-placeholder {
-    opacity: 0.7;
-    font-style: italic;
-}
-
-/* ================= INFO CENTER ================= */
-.info-center {
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 20px 0;
-}
-
-/* ================= MUNICIPALITIES ================= */
-.content {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px 80px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 60px;
-}
-
-.municipality {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 90px;
-}
-
-.municipality.reverse {
-    flex-direction: row-reverse;
-}
-
-.municipality img {
-    width: 100%;
-    max-width: 520px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 20px;
-    background: #e5e7eb;
-}
-
-.municipality-content h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.municipality-content p {
-    color: #475569;
-    margin-bottom: 22px;
-}
-
-.explore-btn {
-    padding: 10px 26px;
-    border-radius: 22px;
-    background: #1e3a8a;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.explore-btn:hover {
-    background: #3b82f6;
-}
-
-/* ================= SCROLL FADE ================= */
-.fade {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reduced-motion .fade {
-    opacity: 1 !important;
-    transform: none !important;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align: center;
-    padding: 24px;
-    background: #f1f5f9;
-    color: #475569;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-    .municipality, .municipality.reverse {
-        flex-direction: column;
-    }
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -224,7 +19,6 @@ footer {
         <span style="--i:6">I</span>
         <span style="--i:7">N</span>
         <span style="--i:8">A</span>
-        <span style="margin-left:10px"></span>
     </div>
 </div>
 
@@ -287,23 +81,27 @@ footer {
 
 <script src="applysettings.js"></script>
 <script>
-/* Scroll fade */
+/* ================= INTRO ANIMATION ================= */
+setTimeout(() => {
+    document.querySelector('.intro')?.remove();
+}, 4200);
+
+/* ================= SCROLL FADE ================= */
 const fades = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
         }
     });
-}, { threshold: 0.75 });
+}, { threshold: 0.25 });
 
 fades.forEach(el => observer.observe(el));
 
-/* Remove intro */
-setTimeout(() => {
-    document.querySelector('.intro')?.remove();
-}, 4200);
+/* ================= APPLY USER SETTINGS ================= */
+applySettings();
 </script>
-
 </body>
 </html>
