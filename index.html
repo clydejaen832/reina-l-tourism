@@ -17,7 +17,7 @@
             color: #111827;
         }
 
-        /* ================= INTRO JEEP ANIMATION ================= */
+        /* ================= INTRO JEEP ================= */
         .intro {
             position: fixed;
             inset: 0;
@@ -45,42 +45,25 @@
             opacity: 0;
         }
 
-        .jeep span:nth-child(1) { animation-delay: 0.1s }
-        .jeep span:nth-child(2) { animation-delay: 0.2s }
-        .jeep span:nth-child(3) { animation-delay: 0.3s }
-        .jeep span:nth-child(4) { animation-delay: 0.4s }
-        .jeep span:nth-child(5) { animation-delay: 0.5s }
-        .jeep span:nth-child(6) { animation-delay: 0.6s }
-        .jeep span:nth-child(7) { animation-delay: 0.7s }
-        .jeep span:nth-child(8) { animation-delay: 0.8s }
+        .jeep span:nth-child(n) {
+            animation-delay: calc(0.1s * var(--i));
+        }
 
         .wheel {
-            font-size: 36px;
+            font-size: 34px;
             margin-left: 12px;
         }
 
         @keyframes assemble {
-            from {
-                transform: translateY(40px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes driveOff {
-            to {
-                transform: translateX(120vw);
-                opacity: 0;
-            }
+            to { transform: translateX(120vw); opacity: 0; }
         }
 
-        /* Reduced motion */
-        .reduced-motion .intro {
-            display: none;
-        }
+        .reduced-motion .intro { display: none; }
 
         /* ================= TOP BAR ================= */
         .top-bar {
@@ -88,8 +71,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 16px 40px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -113,48 +97,68 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .nav-btn:hover {
             background: #3b82f6;
+            transform: translateY(-1px);
         }
 
         /* ================= HERO ================= */
         .hero {
-            padding: 90px 20px 70px;
+            padding: 110px 20px 90px;
             text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            width: 60px;
+            height: 4px;
+            background: #1e3a8a;
+            transform: translateX(-50%);
+            border-radius: 4px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-size: 44px;
+            margin-bottom: 12px;
         }
 
         .hero p {
             color: #475569;
-            max-width: 620px;
+            max-width: 640px;
             margin: auto;
+            font-size: 17px;
         }
 
         /* ================= CONTENT ================= */
         .content {
             max-width: 1200px;
             margin: auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         .section-title {
-            font-size: 28px;
-            margin-bottom: 40px;
+            font-size: 30px;
+            margin-bottom: 60px;
             text-align: center;
         }
 
-        /* ================= MUNICIPALITIES ================= */
+        /* ================= MUNICIPALITY CARDS ================= */
         .municipality {
             display: flex;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
-            margin-bottom: 80px;
+            margin-bottom: 90px;
+            padding: 40px;
+            border-radius: 28px;
+            background: #f8fafc;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
         .municipality.reverse {
@@ -163,35 +167,38 @@
 
         .municipality img {
             width: 100%;
-            max-width: 520px;
+            max-width: 500px;
             height: 300px;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 22px;
             background: #e5e7eb;
         }
 
         .municipality-content h2 {
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 12px;
         }
 
         .municipality-content p {
             color: #475569;
-            margin-bottom: 22px;
-            line-height: 1.6;
+            margin-bottom: 26px;
+            line-height: 1.7;
         }
 
         .explore-btn {
-            padding: 10px 26px;
-            border-radius: 22px;
+            padding: 12px 30px;
+            border-radius: 24px;
             background: #1e3a8a;
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
         }
 
         .explore-btn:hover {
             background: #3b82f6;
+            transform: translateY(-2px);
         }
 
         /* ================= SCROLL FADE ================= */
@@ -213,7 +220,7 @@
 
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 30px;
             background: #f1f5f9;
             color: #475569;
         }
@@ -222,6 +229,7 @@
             .municipality,
             .municipality.reverse {
                 flex-direction: column;
+                padding: 30px;
             }
         }
     </style>
@@ -231,9 +239,9 @@
 <!-- INTRO -->
 <div class="intro">
     <div class="jeep">
-        <span>T</span><span>O</span><span>U</span><span>R</span>
-        <span>E</span><span>I</span><span>N</span><span>A</span>
-        <span class="wheel">🛞🛞</span>
+        <span style="--i:1">T</span><span style="--i:2">O</span><span style="--i:3">U</span><span style="--i:4">R</span>
+        <span style="--i:5">E</span><span style="--i:6">I</span><span style="--i:7">N</span><span style="--i:8">A</span>
+        <span class="wheel"></span>
     </div>
 </div>
 
@@ -248,7 +256,7 @@
 
 <section class="hero fade">
     <h1>Explore TouReina</h1>
-    <p>A tourism guide showcasing the beauty of Real, Infanta, and Nakar.</p>
+    <p>A tourism guide showcasing the beauty, culture, and nature of Real, Infanta, and Nakar.</p>
 </section>
 
 <section class="content">
@@ -258,7 +266,7 @@
         <img src="images/real.jpg" alt="Real">
         <div class="municipality-content">
             <h2>Real</h2>
-            <p>Waterfalls, rivers, and eco-adventures surrounded by nature.</p>
+            <p>Known for waterfalls, rivers, and eco-adventures surrounded by lush mountain landscapes.</p>
             <a href="real.html" class="explore-btn">Explore</a>
         </div>
     </div>
@@ -267,7 +275,7 @@
         <img src="images/infanta.jpg" alt="Infanta">
         <div class="municipality-content">
             <h2>Infanta</h2>
-            <p>A coastal town rich in culture, beaches, and scenic views.</p>
+            <p>A coastal municipality rich in fishing culture, beaches, and scenic seaside views.</p>
             <a href="infanta.html" class="explore-btn">Explore</a>
         </div>
     </div>
@@ -276,7 +284,7 @@
         <img src="images/nakar.jpg" alt="Nakar">
         <div class="municipality-content">
             <h2>Nakar</h2>
-            <p>Eco-tourism, rivers, and protected natural landscapes.</p>
+            <p>Home to protected forests, rivers, and eco-tourism destinations.</p>
             <a href="nakar.html" class="explore-btn">Explore</a>
         </div>
     </div>
@@ -299,7 +307,7 @@
 
     fades.forEach(el => observer.observe(el));
 
-    // Remove intro after animation
+    // Remove intro
     setTimeout(() => {
         const intro = document.querySelector('.intro');
         if (intro) intro.remove();
