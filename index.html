@@ -4,69 +4,103 @@
     <meta charset="UTF-8">
     <title>TouReina Tourist Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ===== INTRO ANIMATION ===== */
-        .intro-overlay {
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #111827;
+        }
+
+        /* ================= INTRO JEEP ANIMATION ================= */
+        .intro {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #0f766e, #5eead4);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            animation: fadeOut 1s ease forwards;
+            overflow: hidden;
+        }
+
+        .jeep {
+            display: flex;
+            align-items: center;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            animation: driveOff 2.2s ease forwards;
             animation-delay: 2s;
         }
 
-        .intro-content {
-            text-align: center;
-            color: white;
-            animation: fadeInUp 1.2s ease forwards;
+        .jeep span {
+            display: inline-block;
+            animation: assemble 0.8s ease forwards;
+            opacity: 0;
         }
 
-        .intro-title {
-            font-size: 42px;
+        .jeep span:nth-child(1) { animation-delay: 0.1s }
+        .jeep span:nth-child(2) { animation-delay: 0.2s }
+        .jeep span:nth-child(3) { animation-delay: 0.3s }
+        .jeep span:nth-child(4) { animation-delay: 0.4s }
+        .jeep span:nth-child(5) { animation-delay: 0.5s }
+        .jeep span:nth-child(6) { animation-delay: 0.6s }
+        .jeep span:nth-child(7) { animation-delay: 0.7s }
+        .jeep span:nth-child(8) { animation-delay: 0.8s }
+
+        .wheel {
+            font-size: 36px;
+            margin-left: 12px;
+        }
+
+        @keyframes assemble {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes driveOff {
+            to {
+                transform: translateX(120vw);
+                opacity: 0;
+            }
+        }
+
+        /* Reduced motion */
+        .reduced-motion .intro {
+            display: none;
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
             font-weight: bold;
             letter-spacing: 3px;
         }
 
-        .intro-sub {
-            margin-top: 10px;
-            font-size: 14px;
-            opacity: 0.9;
-            letter-spacing: 1px;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
-        }
-
-        .page-content {
-            opacity: 0;
-            animation: pageFadeIn 1s ease forwards;
-            animation-delay: 2.2s;
-        }
-
-        @keyframes pageFadeIn {
-            to { opacity: 1; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .intro-overlay,
-            .intro-content,
-            .page-content {
-                animation: none !important;
-            }
-        }
-
-        /* ===== NAV ===== */
         nav {
             display: flex;
             gap: 12px;
@@ -77,200 +111,200 @@
             border-radius: 18px;
             background: #1e3a8a;
             color: white;
-            font-weight: bold;
             text-decoration: none;
-            transition: background 0.3s;
+            font-weight: bold;
         }
 
         .nav-btn:hover {
             background: #3b82f6;
         }
 
-        /* ===== HERO ===== */
-        .hero-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .hero-center h1 {
-            font-size: 32px;
-            margin: 0;
+        /* ================= HERO ================= */
+        .hero {
+            padding: 90px 20px 70px;
             text-align: center;
         }
 
-        .hero-side-btn {
-            padding: 12px 28px;
-            border-radius: 24px;
-            background: white;
-            color: #0f766e;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
-        .hero-side-btn:hover {
-            background: #0f766e;
-            color: white;
+        .hero p {
+            color: #475569;
+            max-width: 620px;
+            margin: auto;
         }
 
-        /* ===== CARDS ===== */
-        .card-grid {
-            display: grid;
-            gap: 30px;
+        /* ================= CONTENT ================= */
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
         }
 
-        .four-cards {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        .card {
-            background: #0f172a;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-            color: white;
+        /* ================= MUNICIPALITIES ================= */
+        .municipality {
             display: flex;
-            flex-direction: column;
-        }
-
-        .card-img {
-            height: 190px;
-            background: #d1d5db;
-            display: flex;
+            gap: 40px;
             align-items: center;
-            justify-content: center;
-            color: #374151;
-            font-weight: bold;
+            margin-bottom: 80px;
         }
 
-        .card-body {
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .municipality.reverse {
+            flex-direction: row-reverse;
         }
 
-        .primary-btn {
-            padding: 12px;
-            border-radius: 24px;
+        .municipality img {
+            width: 100%;
+            max-width: 520px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #e5e7eb;
+        }
+
+        .municipality-content h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .municipality-content p {
+            color: #475569;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .explore-btn {
+            padding: 10px 26px;
+            border-radius: 22px;
             background: #1e3a8a;
             color: white;
+            text-decoration: none;
             font-weight: bold;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s;
         }
 
-        .primary-btn:hover {
+        .explore-btn:hover {
             background: #3b82f6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* ================= SCROLL FADE ================= */
+        .fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reduced-motion .fade {
+            opacity: 1 !important;
+            transform: none !important;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: #111;
-            color: #ccc;
+            padding: 25px;
+            background: #f1f5f9;
+            color: #475569;
         }
 
-        /* remove underline from link buttons */
-        .btn-link {
-            text-decoration: none;
+        @media (max-width: 900px) {
+            .municipality,
+            .municipality.reverse {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 
 <!-- INTRO -->
-<div class="intro-overlay" id="intro">
-    <div class="intro-content">
-        <div class="intro-title">REINA</div>
-        <div class="intro-sub">Tourist Website</div>
+<div class="intro">
+    <div class="jeep">
+        <span>T</span><span>O</span><span>U</span><span>R</span>
+        <span>E</span><span>I</span><span>N</span><span>A</span>
+        <span class="wheel">🛞🛞</span>
     </div>
 </div>
 
-<header class="top-bar page-content">
-    <div class="logo">Reina</div>
+<header class="top-bar">
+    <div class="logo">TOUREINA</div>
     <nav>
         <a href="settings.html" class="nav-btn">Settings</a>
         <a href="credits.html" class="nav-btn">Credits</a>
-        <a href="#" class="nav-btn">About</a>
+        <a href="about.html" class="nav-btn">About</a>
     </nav>
 </header>
 
-<section class="hero page-content">
-    <div class="hero-row">
-        <button class="hero-side-btn">About Reina</button>
+<section class="hero fade">
+    <h1>Explore TouReina</h1>
+    <p>A tourism guide showcasing the beauty of Real, Infanta, and Nakar.</p>
+</section>
 
-        <div class="hero-center">
-            <h1>Group 3 – STEM A</h1>
-            <p>Tourism • Culture • Education</p>
+<section class="content">
+    <h2 class="section-title fade">Municipalities</h2>
+
+    <div class="municipality fade">
+        <img src="images/real.jpg" alt="Real">
+        <div class="municipality-content">
+            <h2>Real</h2>
+            <p>Waterfalls, rivers, and eco-adventures surrounded by nature.</p>
+            <a href="real.html" class="explore-btn">Explore</a>
         </div>
+    </div>
 
-        <button class="hero-side-btn">Significance of this Site</button>
+    <div class="municipality reverse fade">
+        <img src="images/infanta.jpg" alt="Infanta">
+        <div class="municipality-content">
+            <h2>Infanta</h2>
+            <p>A coastal town rich in culture, beaches, and scenic views.</p>
+            <a href="infanta.html" class="explore-btn">Explore</a>
+        </div>
+    </div>
+
+    <div class="municipality fade">
+        <img src="images/nakar.jpg" alt="Nakar">
+        <div class="municipality-content">
+            <h2>Nakar</h2>
+            <p>Eco-tourism, rivers, and protected natural landscapes.</p>
+            <a href="nakar.html" class="explore-btn">Explore</a>
+        </div>
     </div>
 </section>
 
-<section class="content page-content">
-    <h2 class="section-title">Tourist Destinations</h2>
-
-    <div class="card-grid four-cards">
-
-        <!-- REAL -->
-        <div class="card">
-            <div class="card-img">Picture Here</div>
-            <div class="card-body">
-                <h3>Real</h3>
-                <a href="real.html" class="btn-link">
-                    <div class="primary-btn">Explore</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- INFANTA -->
-        <div class="card">
-            <div class="card-img">Picture Here</div>
-            <div class="card-body">
-                <h3>Infanta</h3>
-                <a href="infanta.html" class="btn-link">
-                    <div class="primary-btn">Explore</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- NAKAR -->
-        <div class="card">
-            <div class="card-img">Picture Here</div>
-            <div class="card-body">
-                <h3>Nakar</h3>
-                <a href="nakar.html" class="btn-link">
-                    <div class="primary-btn">Explore</div>
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<footer class="page-content">
-    <p>Reina Tourist Website | Group 3 – STEM A</p>
+<footer>
+    TouReina Tourist Website • Group 3 – STEM A
 </footer>
 
 <script src="applysettings.js"></script>
 
 <script>
-    // Remove intro overlay after animation
+    // Scroll fade
+    const fades = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15 });
+
+    fades.forEach(el => observer.observe(el));
+
+    // Remove intro after animation
     setTimeout(() => {
-        const intro = document.getElementById("intro");
+        const intro = document.querySelector('.intro');
         if (intro) intro.remove();
-    }, 3000);
+    }, 4200);
 </script>
 
 </body>
 </html>
-
