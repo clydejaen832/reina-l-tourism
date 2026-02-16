@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #111827;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .nav-btn {
+            padding: 8px 18px;
+            border-radius: 18px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        /* ===== CONTENT ===== */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 90px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        ul {
+            color: #475569;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        /* ===== DARK MODE SUPPORT ===== */
+        .dark-mode {
+            background: #111827;
+            color: #e5e7eb;
+        }
+
+        .dark-mode .top-bar {
+            background: #1f2937;
+        }
+
+        .dark-mode .hero p,
+        .dark-mode .section p,
+        .dark-mode ul {
+            color: #cbd5f5;
+        }
+
+        .dark-mode .hero h1,
+        .dark-mode .section h2 {
+            color: #f0f9ff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="index.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>About This Website</h1>
+    <p>
+        TouReina is a tourism website created to showcase selected destinations in Real, Quezon.
+        This platform serves as our final project output in the subject Empowerment Technology,
+        where we applied our knowledge in web design, layout structuring, and digital content creation.
+    </p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <h2>Project Background</h2>
+        <p>
+            This website was developed as part of our requirements in Empowerment Technology.
+            The goal was to create a functional and informative website that demonstrates our
+            understanding of HTML, CSS, and basic interactive elements. Through this project,
+            we learned how technology can be used to organize information clearly and present
+            it in a visually appealing way.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Why We Created This</h2>
+        <p>
+            We chose to focus on tourism in Real, Quezon to highlight the natural beauty of
+            local destinations. Our aim was to build a clean, user-friendly website that provides
+            helpful information for visitors while also demonstrating our technical skills.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Challenges We Faced</h2>
+        <p>
+            One of the main struggles our group experienced was early coordination. At the beginning,
+            it was difficult to align our schedules, divide tasks properly, and finalize our design ideas.
+            There were moments of misunderstanding and delays, especially while combining different
+            suggestions into one final concept.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>How We Worked Together</h2>
+        <p>
+            Despite the challenges, we managed to improve our communication and teamwork.
+            We distributed responsibilities based on each member’s strengths and made sure
+            to update one another regularly. By cooperating, supporting each other, and
+            staying focused on our goal, we were able to complete this project successfully.
+        </p>
+        <ul>
+            <li>Improved communication and coordination</li>
+            <li>Clear task distribution</li>
+            <li>Collaborative problem-solving</li>
+            <li>Shared responsibility until completion</li>
+        </ul>
+    </section>
+
+</div>
+
+<!-- Optional if you use dark mode in your site -->
+<script src="applysettings.js"></script>
+<script>
+    applySettings();
+</script>
+
+<!-- Scroll Animation -->
+<script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
