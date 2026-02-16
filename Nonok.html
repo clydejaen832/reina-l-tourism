@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Nonok Falls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #111827;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .nav-btn {
+            padding: 8px 18px;
+            border-radius: 18px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 90px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 480px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .text p {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        ul {
+            padding-left: 18px;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 850px) {
+            .section,
+            .section.reverse {
+                flex-direction: column;
+            }
+
+            .section img {
+                max-width: 100%;
+                height: 260px;
+            }
+        }
+
+        .dark-mode {
+            background: #111827;
+            color: #e5e7eb;
+        }
+
+        .dark-mode .top-bar {
+            background: #1f2937;
+        }
+
+        .dark-mode .hero p,
+        .dark-mode .text p,
+        .dark-mode ul {
+            color: #cbd5f5;
+        }
+
+        .dark-mode .hero h1,
+        .dark-mode .text h2 {
+            color: #f0f9ff;
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="real.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Nonok Falls (Lunok Falls)</h1>
+    <p>
+        Nonok Falls, also known as Lunok Falls, is a breathtaking ~10-meter-high waterfall
+        located in Brgy. Tignoan, Real, Quezon. Known for its wide and deep catch basin,
+        it is a popular destination for swimming and cliff jumping.
+    </p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="Nonok1.jpg" alt="Nonok Falls">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>
+                This easily accessible waterfall is surrounded by lush forest and tall trees,
+                creating a refreshing shaded environment. Just a short 5–15 minute walk from
+                the Real–Mauban Road leads visitors to its strong flowing waters and wide basin,
+                making it ideal for adventure seekers and nature lovers.
+            </p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Nonok2.jpg" alt="Location of Nonok Falls">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>
+                Located in Barangay Tignoan, Real, Quezon, the falls can be reached by a
+                less-than-10-minute walk from the main Real–Mauban Road. The short trek makes
+                it convenient for visitors looking for a quick nature getaway.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="Nonok3.jpg" alt="Natural features of Nonok Falls">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>
+                The waterfall is surrounded by remarkable rock formations and dense forest.
+                The cold, fresh water flows into a deep natural swimming area that appears
+                inviting yet requires caution. The towering trees provide natural shade,
+                enhancing the peaceful and cool atmosphere.
+            </p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Nonok4.jpg" alt="Activities at Nonok Falls">
+        <div class="text">
+            <h2>Tourism & Visitor Information</h2>
+            <p>
+                Visitors can relax in open nipa huts, enjoy picnics, swim, and explore the
+                unique rock formations. Cliff diving is popular but may be risky due to the
+                area being less developed and minimally maintained.
+            </p>
+            <ul>
+                <li>Entrance fee: Approx. PHP 20–40 per person</li>
+                <li>Parking fee: Around PHP 20</li>
+                <li>Managed under the LGU of Real (Aksyon Diretso agenda)</li>
+                <li>Exercise caution on slippery rocks</li>
+                <li>Practice proper waste disposal</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script src="applysettings.js"></script>
+<script>
+    applySettings();
+</script>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.75
+    });
+
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
