@@ -1,241 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TouReina | Minahan</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>TouReina | Minahan (Old Mining Site)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-box-sizing: border-box;
-font-family: "Segoe UI", sans-serif;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
 
-body {
-margin: 0;
-background: #f5f7fa;
-color: #111827;
-transition: background 0.3s, color 0.3s;
-}
+        body {
+            margin: 0;
+            background: #f5f7fa;
+            color: #111827;
+            transition: background 0.3s, color 0.3s;
+        }
 
-.top-bar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 40px;
-background: white;
-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-transition: background 0.3s;
-}
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
 
-.logo {
-font-size: 26px;
-font-weight: bold;
-}
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
 
-.nav-btn {
-padding: 8px 18px;
-border-radius: 18px;
-background: #1e3a8a;
-color: white;
-text-decoration: none;
-font-weight: bold;
-}
+        .nav-btn {
+            padding: 8px 18px;
+            border-radius: 18px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.hero {
-text-align: center;
-padding: 90px 20px 60px;
-}
+        .hero {
+            text-align: center;
+            padding: 90px 20px 60px;
+        }
 
-.hero h1 {
-font-size: 42px;
-margin-bottom: 12px;
-}
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
 
-.hero p {
-max-width: 750px;
-margin: auto;
-color: #475569;
-font-size: 16px;
-line-height: 1.7;
-}
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.7;
+        }
 
-.container {
-max-width: 1100px;
-margin: auto;
-padding: 20px;
-}
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.section {
-display: flex;
-align-items: center;
-gap: 50px;
-margin-bottom: 90px;
-opacity: 0;
-transform: translateY(40px);
-transition: all 0.8s ease;
-}
+        .section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 90px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
 
-.section.show {
-opacity: 1;
-transform: translateY(0);
-}
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.section.reverse {
-flex-direction: row-reverse;
-}
+        .section.reverse {
+            flex-direction: row-reverse;
+        }
 
-.section img {
-width: 100%;
-max-width: 480px;
-height: 320px;
-object-fit: cover;
-border-radius: 22px;
-box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
+        .section img {
+            width: 100%;
+            max-width: 480px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
 
-.text {
-flex: 1;
-}
+        .text {
+            flex: 1;
+        }
 
-.text h2 {
-font-size: 30px;
-margin-bottom: 15px;
-}
+        .text h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
 
-.text p {
-color: #475569;
-line-height: 1.8;
-font-size: 15px;
-}
+        .text p {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 15px;
+        }
 
-ul {
-padding-left: 18px;
-color: #475569;
-line-height: 1.8;
-}
+        ul {
+            padding-left: 18px;
+            color: #475569;
+            line-height: 1.8;
+        }
 
-@media (max-width: 850px) {
-.section,
-.section.reverse {
-flex-direction: column;
-}
+        @media (max-width: 850px) {
+            .section,
+            .section.reverse {
+                flex-direction: column;
+            }
 
-.section img {
-max-width: 100%;
-height: 260px;
-}
-}
+            .section img {
+                max-width: 100%;
+                height: 260px;
+            }
+        }
 
-.dark-mode {
-background: #111827;
-color: #e5e7eb;
-}
+        .dark-mode {
+            background: #111827;
+            color: #e5e7eb;
+        }
 
-.dark-mode .top-bar {
-background: #1f2937;
-}
+        .dark-mode .top-bar {
+            background: #1f2937;
+        }
 
-.dark-mode .hero p,
-.dark-mode .text p,
-.dark-mode ul {
-color: #cbd5f5;
-}
+        .dark-mode .hero p,
+        .dark-mode .text p,
+        .dark-mode ul {
+            color: #cbd5f5;
+        }
 
-.dark-mode .hero h1,
-.dark-mode .text h2 {
-color: #f0f9ff;
-}
-</style>
+        .dark-mode .hero h1,
+        .dark-mode .text h2 {
+            color: #f0f9ff;
+        }
+    </style>
 </head>
-
 <body>
 
 <header class="top-bar">
-<div class="logo">TouReina</div>
-<a href="real.html" class="nav-btn">Back</a>
+    <div class="logo">TouReina</div>
+    <a href="real.html" class="nav-btn">Back</a>
 </header>
 
 <section class="hero">
-<h1>Minahan (Old Mining Site)</h1>
-<p>
-Minahan, located in the upland areas of General Nakar, Quezon, refers to a former mining site
-known for its historical significance and rugged natural landscape. The area features remnants
-of past small-scale mining activities surrounded by dense forest and mountainous terrain.
-Today, it attracts visitors interested in history, trekking, and off-the-beaten-path exploration.
-</p>
+    <h1>Minahan (Old Mining Site)</h1>
+    <p>
+        Minahan refers to a former mining area in General Nakar, Quezon, known for its historical and natural landscape. The site features remnants of past mining activity surrounded by forested terrain and attracts visitors interested in local history, nature exploration, and off-the-beaten-path destinations.
+    </p>
 </section>
 
 <div class="container">
 
-<section class="section">
-<img src="Minahan1.jpg" alt="Minahan Old Mining Site">
-<div class="text">
-<h2>Location & Accessibility</h2>
-<p>
-The Minahan site is situated within the mountainous interior of General Nakar,
-near rural barangays connected to the eastern slopes of the Sierra Madre.
-Visitors travel from the town proper to designated jump-off barangays,
-then proceed by trekking through forest trails and uneven terrain.
-Local guides are highly recommended for safe navigation.
-</p>
-</div>
-</section>
+    <section class="section">
+        <img src="Minahan1.jpg" alt="Minahan Mining Site">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>
+                The Minahan site is a historical mining area surrounded by dense forest and mountainous terrain. Visitors can explore remnants of mining structures while enjoying the natural scenery. It is suitable for history enthusiasts, hikers, and nature explorers.
+            </p>
+        </div>
+    </section>
 
-<section class="section reverse">
-<img src="Minahan2.jpg" alt="Minahan Natural Features">
-<div class="text">
-<h2>Geography & Background</h2>
-<p>
-The area is characterized by rugged upland terrain, rocky surfaces,
-forest cover, and visible remnants of excavated land.
-Small streams and dense vegetation surround the site,
-creating a humid tropical environment with cooler air at higher elevations.
-The name “Minahan” reflects its historical use as a mining area,
-though operations have long ceased.
-</p>
-</div>
-</section>
+    <section class="section reverse">
+        <img src="Minahan2.jpg" alt="Location of Minahan Mining Site">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>
+                Located in upland areas of General Nakar, Quezon, the site is accessed via nearby barangays. Visitors travel by land from the town proper to jump-off points, followed by trekking through forest trails. Local guides are recommended for safety and navigation.
+            </p>
+        </div>
+    </section>
 
-<section class="section">
-<img src="Minahan3.jpg" alt="Minahan Tourism Activities">
-<div class="text">
-<h2>Tourism & Visitor Information</h2>
-<p>
-Minahan offers trekking, photography, and educational visits focused on local
-economic history and environmental awareness.
-</p>
-<ul>
-<li>Trekking and nature walks</li>
-<li>Exploration of historical mining remnants (where permitted)</li>
-<li>Mountain and forest photography</li>
-<li>Registration with barangay officials may be required</li>
-<li>Bring sufficient water, food, and trekking gear</li>
-<li>Dry season (November–May) is best for safer trails</li>
-</ul>
-</div>
-</section>
+    <section class="section">
+        <img src="Minahan3.jpg" alt="Geography and Natural Features of Minahan">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>
+                The area features rugged terrain, rocky ground, forest cover, and remnants of old mining excavations. Small streams and dense vegetation surround the site, creating a tropical upland environment typical of the Sierra Madre region.
+            </p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Minahan4.jpg" alt="Tourism and Visitor Information at Minahan">
+        <div class="text">
+            <h2>Tourism & Visitor Information</h2>
+            <p>
+                Visitors can trek forest trails, explore old mining areas where permitted, and take photographs of the natural landscape. Educational visits about local history and outdoor adventure are popular activities.
+            </p>
+            <ul>
+                <li>Minimal or no developed facilities</li>
+                <li>Local guides available from nearby communities</li>
+                <li>Bring food, water, and trekking gear</li>
+                <li>Environmental or access fees may be collected</li>
+                <li>Follow safety rules and avoid restricted areas</li>
+            </ul>
+        </div>
+    </section>
 
 </div>
 
 <script src="applysettings.js"></script>
 <script>
-applySettings();
+    applySettings();
 </script>
 
 <script>
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('show');
-}
-});
-}, {
-threshold: 0.75
-});
-sections.forEach(section => observer.observe(section));
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.75
+    });
+
+    sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
 </html>
+
