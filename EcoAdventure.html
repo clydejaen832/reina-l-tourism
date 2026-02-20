@@ -72,4 +72,27 @@
             <h2>Facilities & Activities</h2>
             <ul>
                 <li>Swimming and kayaking in natural pools</li>
-                <li>Picnic areas and open green
+                <li>Picnic areas and open green spaces</li>
+                <li>Bamboo rafting and forest trekking</li>
+                <li>Cottages and transient rooms for overnight stays</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // IntersectionObserver for scroll animation
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 }); // lower threshold so it triggers earlier
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
