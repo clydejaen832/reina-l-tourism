@@ -5,10 +5,28 @@
     <title>TouReina | Eco Adventure Park</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Same CSS as previous pages */
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 26px; font-weight: bold; }
+        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .hero { text-align: center; padding: 90px 20px 60px; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .section.show { opacity: 1; transform: translateY(0); }
+        .section.reverse { flex-direction: row-reverse; }
+        .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .text { flex: 1; }
+        .text h2 { font-size: 30px; margin-bottom: 15px; }
+        .text p, .text ul { color: #475569; line-height: 1.8; font-size: 15px; }
+        ul { padding-left: 18px; }
+        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
     </style>
 </head>
 <body>
+
 
 <header class="top-bar">
     <div class="logo">TouReina</div>
@@ -56,29 +74,6 @@
                 <li>Bamboo rafting and forest trekking</li>
                 <li>Cottages and transient rooms for overnight stays</li>
             </ul>
-        </div>
-    </section>
-
-    <section class="section">
-        <img src="EcoAdventureTips.jpg" alt="Tips & Best Time to Visit">
-        <div class="text">
-            <h2>Tips & Best Time to Visit</h2>
-            <ul>
-                <li>Dry season (November–May) preferred</li>
-                <li>Follow safety guidelines for water activities</li>
-                <li>Observe cleanliness and environmental rules</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="section reverse">
-        <img src="EcoAdventureCommunity.jpg" alt="Cultural & Local Significance">
-        <div class="text">
-            <h2>Cultural & Local Significance</h2>
-            <p>Supports local eco-tourism, highlights Infanta’s natural beauty, and promotes family-friendly outdoor recreation while contributing to the local economy.</p>
-            <p><strong>Contact:</strong> 09760251829 / 09561626048 / 09561626046 <br>
-               <strong>Email:</strong> staycation.upgrade@gmail.com <br>
-               <strong>Facebook:</strong> ECO ADVENTURE PARK</p>
         </div>
     </section>
 
