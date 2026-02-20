@@ -61,5 +61,40 @@
     </section>
 
     <section class="section">
-        <img src="Masanga3.jpg" alt="Geography and Natural Features of Masanga Point">
-        <
+    <img src="Masanga3.jpg" alt="Geography and Natural Features of Masanga Point">
+    <div class="text">
+        <h2>Geography & Natural Features</h2>
+        <p>Masanga Point features rugged coastal cliffs, a naturally formed rock arch, and a small inlet where calm waves allow for safe swimming. The shoreline consists of smooth dark pebbles and rocks, with panoramic views of the Pacific Ocean. Coastal vegetation adds to the natural charm, making it a perfect spot for photography and nature observation.</p>
+    </div>
+</section>
+
+<section class="section reverse">
+    <img src="Masanga4.jpg" alt="Tourism and Visitor Information at Masanga Point">
+    <div class="text">
+        <h2>Tourism & Visitor Information</h2>
+        <p>Visitors can enjoy sightseeing, swimming when sea conditions are safe, coastal photography, and nature walks along the cliffs. The site has minimal development, so bringing water, sun protection, and personal supplies is recommended. Environmental or access fees may be collected, and local tourism registration may be required.</p>
+        <ul>
+            <li>Limited facilities; mostly natural landscape</li>
+            <li>Bring water, sun protection, and essentials</li>
+            <li>Swimming only when sea is calm</li>
+            <li>Follow local guidelines and respect the area</li>
+            <li>Photography and sightseeing encouraged</li>
+        </ul>
+    </div>
+</section>
+
+</div>
+
+<script src="applysettings.js"></script>
+<script>applySettings();</script>
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
+
