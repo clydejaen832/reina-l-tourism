@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Sulok Beach</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* SAME CSS AS ORIGINAL */
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: background 0.3s; }
+        .logo { font-size: 26px; font-weight: bold; }
+        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .hero { text-align: center; padding: 90px 20px 60px; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .section.show { opacity: 1; transform: translateY(0); }
+        .section.reverse { flex-direction: row-reverse; }
+        .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .text { flex: 1; }
+        .text h2 { font-size: 30px; margin-bottom: 15px; }
+        .text p { color: #475569; line-height: 1.8; font-size: 15px; }
+        ul { padding-left: 18px; color: #475569; line-height: 1.8; }
+        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
+        .dark-mode { background: #111827; color: #e5e7eb; }
+        .dark-mode .top-bar { background: #1f2937; }
+        .dark-mode .hero p, .dark-mode .text p, .dark-mode ul { color: #cbd5f5; }
+        .dark-mode .hero h1, .dark-mode .text h2 { color: #f0f9ff; }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="Nakar.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Sulok Beach</h1>
+    <p>Sulok Beach is a tranquil coastal escape in General Nakar, Quezon. Known for its unspoiled sandy shores, natural vegetation, and calm atmosphere, it provides a perfect retreat from crowded tourist areas, ideal for relaxation, seaside recreation, and nature appreciation.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="Sulok1.jpg" alt="Sulok Beach Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>The beach features wide sandy stretches with natural coastal vegetation and open views of the Pacific Ocean. Its quiet, less-developed environment is ideal for visitors seeking peace, beach walking, photography, and observing local fishing activities in a pristine coastal setting.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Sulok2.jpg" alt="Location of Sulok Beach">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Located in a coastal barangay of General Nakar, Sulok Beach is accessible via the main coastal highway connecting neighboring municipalities. Local transport such as tricycles or motorcycles from the town proper can bring visitors close to the beach, with some sections requiring a short walk along sandy or unpaved paths.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="Sulok3.jpg" alt="Geography and Natural Features of Sulok Beach">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>Sulok Beach features rolling waves from the Pacific Ocean, occasional rocky sections, and tropical climate conditions. The surrounding environment remains mostly natural, with minimal development, allowing the coastal flora and fauna to thrive.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Sulok4.jpg" alt="Tourism and Visitor Information at Sulok Beach">
+        <div class="text">
+            <h2>Tourism & Visitor Information</h2>
+            <p>Visitors can swim (when conditions are safe), picnic, photograph scenic views, enjoy nature walks, and camp in designated areas. Facilities are basic, so bringing essentials like water, food, and sun protection is recommended. Environmental fees may be collected depending on barangay regulations.</p>
+            <ul>
+                <li>Basic cottages and picnic areas</li>
+                <li>Limited stores nearby</li>
+                <li>Parking areas accessible in certain sections</li>
+                <li>Follow local guidelines and proper waste disposal</li>
+                <li>Respect natural and community spaces</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script src="applysettings.js"></script>
+<script>applySettings();</script>
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Tulaog Cave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* SAME CSS AS ORIGINAL */
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: background 0.3s; }
+        .logo { font-size: 26px; font-weight: bold; }
+        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .hero { text-align: center; padding: 90px 20px 60px; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .section.show { opacity: 1; transform: translateY(0); }
+        .section.reverse { flex-direction: row-reverse; }
+        .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .text { flex: 1; }
+        .text h2 { font-size: 30px; margin-bottom: 15px; }
+        .text p { color: #475569; line-height: 1.8; font-size: 15px; }
+        ul { padding-left: 18px; color: #475569; line-height: 1.8; }
+        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
+        .dark-mode { background: #111827; color: #e5e7eb; }
+        .dark-mode .top-bar { background: #1f2937; }
+        .dark-mode .hero p, .dark-mode .text p, .dark-mode ul { color: #cbd5f5; }
+        .dark-mode .hero h1, .dark-mode .text h2 { color: #f0f9ff; }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="Nakar.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Tulaog Cave</h1>
+    <p>Tulaog Cave is a sacred coastal cave on a rocky island near Barangay San Marcelino, General Nakar, Quezon. Revered for its spiritual and cultural significance, the cave draws indigenous communities, pilgrims, and visitors seeking reflection, meditation, and connection with nature.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="Tulaog1.jpg" alt="Tulaog Cave Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>Tulaog Cave is an enclosed limestone chamber formed naturally by centuries of ocean and wind erosion. The cave’s interior provides a calm and contemplative environment, while the surrounding island offers panoramic views of the Pacific Ocean. The site serves as a spiritual retreat and pilgrimage destination for religious and indigenous rituals.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Tulaog2.jpg" alt="Location of Tulaog Cave">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Located on a small rocky island near Barangay San Marcelino, Tulaog Cave is accessible only by boat from mainland General Nakar. Travel time varies with sea conditions and coordination with local boat operators is essential. Entry is easier during low tide, and narrow rock openings require careful navigation.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="Tulaog3.jpg" alt="Geography and Natural Features of Tulaog Cave">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>The cave is surrounded by rugged coastal rocks, steep cliffs, and clear saltwater. Inside, thick limestone walls create a quiet chamber protected from the elements. The surrounding marine environment supports coastal flora and fauna, while tropical climate conditions bring strong waves during certain months.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Tulaog4.jpg" alt="Tourism and Visitor Information at Tulaog Cave">
+        <div class="text">
+            <h2>Tourism & Visitor Information</h2>
+            <p>Visitors engage in spiritual reflection, meditation, guided cave exploration, and photography of coastal landscapes. Boat transport is arranged locally, and facilities are minimal. Entry depends on weather, tide, and coordination with local authorities. Respect for sacred areas and indigenous traditions is mandatory.</p>
+            <ul>
+                <li>Boat transport arranged locally</li>
+                <li>Limited or no facilities on site</li>
+                <li>Entry depends on low tide and weather</li>
+                <li>Respect sacred areas and customs</li>
+                <li>Bring personal supplies: water, food, and safety gear</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script src="applysettings.js"></script>
+<script>applySettings();</script>
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
