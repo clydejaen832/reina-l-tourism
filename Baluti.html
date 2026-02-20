@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Baluti Island</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: background 0.3s; }
+        .logo { font-size: 26px; font-weight: bold; }
+        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .hero { text-align: center; padding: 90px 20px 60px; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .section.show { opacity: 1; transform: translateY(0); }
+        .section.reverse { flex-direction: row-reverse; }
+        .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .text { flex: 1; }
+        .text h2 { font-size: 30px; margin-bottom: 15px; }
+        .text p, ul { color: #475569; line-height: 1.8; font-size: 15px; }
+        ul { padding-left: 18px; }
+        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
+        .dark-mode { background: #111827; color: #e5e7eb; }
+        .dark-mode .top-bar { background: #1f2937; }
+        .dark-mode .hero p, .dark-mode .text p, .dark-mode ul { color: #cbd5f5; }
+        .dark-mode .hero h1, .dark-mode .text h2 { color: #f0f9ff; }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="real.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Baluti Island</h1>
+    <p>Small island getaway in Real, Quezon with sandy beaches, clear waters, and relaxing coastal scenery perfect for swimming and picnicking.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="BalutiIsland1.jpg" alt="Baluti Island Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>Baluti Island is ideal for beach relaxation, sunbathing, swimming, and enjoying calm coastal landscapes surrounded by Lamon Bay waters.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="BalutiIsland2.jpg" alt="Location of Baluti Island">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Located in Brgy. Ungos, Real, Quezon. Accessible via a short motorized boat ride from Real’s coastal area after arriving by private vehicle or public transport.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="BalutiIsland3.jpg" alt="Natural Features of Baluti Island">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>Small island with sandy beaches, pine and coastal vegetation, surrounded by clear waters of Lamon Bay, offering a scenic and tranquil environment.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="BalutiIsland4.jpg" alt="Activities at Baluti Island">
+        <div class="text">
+            <h2>Tourism & Activities</h2>
+            <ul>
+                <li>Swimming and beach relaxation</li>
+                <li>Picnicking and sunbathing</li>
+                <li>Island walks and photography</li>
+                <li>Respect natural habitats and maintain cleanliness</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
