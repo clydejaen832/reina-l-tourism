@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Eco Adventure Park</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Same CSS as previous pages */
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="Infanta.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Eco Adventure Park</h1>
+    <p>A nature-focused eco-tourism site in Barangay Magsaysay, Infanta offering river swims, forest trekking, bamboo rafting, and wildlife experiences in lush surroundings.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="EcoAdventureOverview.jpg" alt="Eco Adventure Park Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>Eco Adventure Park features natural water pools, open green areas, and forest trails. Perfect for family outings, adventure, and nature exploration in Infanta.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="EcoAdventureLocation.jpg" alt="Location & Accessibility">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Located at Km 2, Barangay Magsaysay, Infanta. Accessible via private vehicle or public commute along local roads leading from the highway.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="EcoAdventureNature.jpg" alt="Geography & Natural Features">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>Rural area near the Sierra Madre foothills, tropical climate, lush vegetation, natural water pools, and diverse flora and fauna including fruit bats at the nearby mangrove park.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="EcoAdventureFacilities.jpg" alt="Facilities & Activities">
+        <div class="text">
+            <h2>Facilities & Activities</h2>
+            <ul>
+                <li>Swimming and kayaking in natural pools</li>
+                <li>Picnic areas and open green spaces</li>
+                <li>Bamboo rafting and forest trekking</li>
+                <li>Cottages and transient rooms for overnight stays</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="EcoAdventureTips.jpg" alt="Tips & Best Time to Visit">
+        <div class="text">
+            <h2>Tips & Best Time to Visit</h2>
+            <ul>
+                <li>Dry season (November–May) preferred</li>
+                <li>Follow safety guidelines for water activities</li>
+                <li>Observe cleanliness and environmental rules</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="EcoAdventureCommunity.jpg" alt="Cultural & Local Significance">
+        <div class="text">
+            <h2>Cultural & Local Significance</h2>
+            <p>Supports local eco-tourism, highlights Infanta’s natural beauty, and promotes family-friendly outdoor recreation while contributing to the local economy.</p>
+            <p><strong>Contact:</strong> 09760251829 / 09561626048 / 09561626046 <br>
+               <strong>Email:</strong> staycation.upgrade@gmail.com <br>
+               <strong>Facebook:</strong> ECO ADVENTURE PARK</p>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Km. 90 Nature & Rest Area</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Same CSS as previous pages */
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="Infanta.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Km. 90 Nature & Rest Area</h1>
+    <p>A scenic mountain rest stop along Marikina–Infanta Highway, offering cool breezes, elevated views, picnic areas, and eco-style leisure for road trippers, bikers, and families.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="Km90Overview.jpg" alt="Km. 90 Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>Km. 90 is a popular roadside eco-stop in the Sierra Madre foothills with picnic lawns, garden spaces, casual dining, and scenic mountain views.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Km90Location.jpg" alt="Location & Accessibility">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Located at Km. 90, Barangay Magsaysay, Infanta, accessible via Marikina–Infanta (Marilaque) Highway. Private vehicles and motorcycles are preferred; no direct public transport.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="Km90Nature.jpg" alt="Geography & Natural Features">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>Highland area with cool mountain air, occasional fog, rolling hills, grasses, trees, and garden spots offering a “mini-Baguio” feel along the highway.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Km90Facilities.jpg" alt="Facilities & Activities">
+        <div class="text">
+            <h2>Facilities & Activities</h2>
+            <ul>
+                <li>Picnic lawns and garden areas</li>
+                <li>Dining at roadside eco-park restaurant</li>
+                <li>Short nature trails and photo spots</li>
+                <li>Seating areas for road trippers and bikers</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="Km90Tips.jpg" alt="Tips & Best Time to Visit">
+        <div class="text">
+            <h2>Tips & Best Time to Visit</h2>
+            <ul>
+                <li>Morning or late afternoon for cool air and possible fog</li>
+                <li>Dry season (November–April) is safest for travel</li>
+                <li>Watch traffic and wear sturdy shoes</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="Km90Community.jpg" alt="Cultural & Local Significance">
+        <div class="text">
+            <h2>Cultural & Local Significance</h2>
+            <p>Popular stop for bikers and travelers along Marilaque Highway, promoting local eco-tourism and roadside hospitality.</p>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

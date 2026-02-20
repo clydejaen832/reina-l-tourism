@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TouReina | Helena Beach Resort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+        body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 26px; font-weight: bold; }
+        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .hero { text-align: center; padding: 90px 20px 60px; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .section.show { opacity: 1; transform: translateY(0); }
+        .section.reverse { flex-direction: row-reverse; }
+        .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .text { flex: 1; }
+        .text h2 { font-size: 30px; margin-bottom: 15px; }
+        .text p, .text ul { color: #475569; line-height: 1.8; font-size: 15px; }
+        ul { padding-left: 18px; }
+        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">TouReina</div>
+    <a href="Infanta.html" class="nav-btn">Back</a>
+</header>
+
+<section class="hero">
+    <h1>Helena Beach Resort</h1>
+    <p>A beachfront resort in Dinahican, Infanta, Quezon, offering peaceful seaside views, family-friendly amenities, and accommodations ideal for day trips or overnight stays.</p>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <img src="HelenaBeach.jpg" alt="Helena Beach Resort Overview">
+        <div class="text">
+            <h2>Overview</h2>
+            <p>Helena Beach Resort is located along Dinahican Beach, featuring fine sand, calm coastal waters, and a peaceful environment. Perfect for families, groups, and photography enthusiasts.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="HelenaBeachLocation.jpg" alt="Location & Accessibility">
+        <div class="text">
+            <h2>Location & Accessibility</h2>
+            <p>Purok Buyan, Barangay Dinahican, Infanta. Accessible via private vehicles or public transport to Infanta, then via local roads to Dinahican. No hiking needed.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="HelenaBeachNature.jpg" alt="Geography & Natural Features">
+        <div class="text">
+            <h2>Geography & Natural Features</h2>
+            <p>Along the shoreline of Dinahican Beach, featuring calm coastal waters, tropical climate, open ocean views, and scenic sunrise/moonrise experiences.</p>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="HelenaBeachFacilities.jpg" alt="Facilities & Activities">
+        <div class="text">
+            <h2>Facilities & Activities</h2>
+            <ul>
+                <li>Beachfront cottages and rooms (fan / AC)</li>
+                <li>Swimming, relaxation, and beach photography</li>
+                <li>Bonfire area and videoke for rent</li>
+                <li>Playground for kids, grilling area, kitchen use</li>
+                <li>Free Wi-Fi and parking for guests</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="HelenaBeachTips.jpg" alt="Tips & Best Time to Visit">
+        <div class="text">
+            <h2>Tips & Best Time to Visit</h2>
+            <ul>
+                <li>Dry season (November–May) recommended</li>
+                <li>Observe swimming safety and wear life vests</li>
+                <li>Follow resort rules and maintain cleanliness</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section reverse">
+        <img src="HelenaBeachCommunity.jpg" alt="Cultural & Local Significance">
+        <div class="text">
+            <h2>Cultural & Local Significance</h2>
+            <p>Supports local tourism in Dinahican, promoting coastal recreation and livelihood opportunities.</p>
+            <p><strong>Facebook:</strong> Helena Beach Resort</p>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.75 });
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
