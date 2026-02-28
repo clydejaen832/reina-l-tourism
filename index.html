@@ -15,17 +15,20 @@ body {
     margin: 0;
     color: white;
     text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* ================= INTRO JEEP ================= */
 .intro {
     position: fixed;
     inset: 0;
-    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    background: transparent; /* removed white */
 }
 
 .jeep {
@@ -64,7 +67,7 @@ body {
 
 .banner {
     height: 200px;
-    background: rgba(30, 58, 138, 0.7); /* Slight overlay to read text */
+    background: rgba(30, 58, 138, 0.5); /* slight overlay for readability */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,7 +118,7 @@ body {
     padding: 20px 60px;
     align-items: center;
     margin: 30px 60px;
-    background: transparent; /* Removed white panel */
+    background: transparent; /* removed white */
 }
 
 /* ================= MUNICIPALITIES ================= */
@@ -123,7 +126,7 @@ body {
     max-width: 1200px;
     margin: 40px auto 80px;
     padding: 40px 30px;
-    background: transparent; /* Removed white panel */
+    background: transparent; /* removed white */
 }
 
 .section-title {
@@ -195,7 +198,7 @@ body {
 footer {
     text-align: center;
     padding: 24px;
-    background: transparent; /* Removed white panel */
+    background: transparent; /* removed white */
     color: white;
 }
 
