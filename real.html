@@ -270,20 +270,24 @@ body.dark-mode .logo {
 
 </section>
 
-<script src="applysettings.js"></script>
+<script src="applySettings.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    if (typeof applySettings === "function") applySettings();
+    applySettings(); // Ensure theme, font, background, language settings are applied
+</script>
 
-    const spots = document.querySelectorAll('.spot');
+<!-- Scroll Animation -->
+<script>
+    const sections = document.querySelectorAll('.section');
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('show');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.3 });
 
-    spots.forEach(spot => observer.observe(spot));
-});
+    sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
