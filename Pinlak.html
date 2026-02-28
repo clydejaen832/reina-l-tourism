@@ -7,26 +7,45 @@
     <style>
         * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
         body { margin: 0; background: #f5f7fa; color: #111827; transition: background 0.3s, color 0.3s; }
-        .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: background 0.3s; }
+
+        .top-bar { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            transition: background 0.3s; 
+        }
         .logo { font-size: 26px; font-weight: bold; }
-        .nav-btn { padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; text-decoration: none; font-weight: bold; }
+        .nav-btn { 
+            padding: 8px 18px; border-radius: 18px; background: #1e3a8a; color: white; 
+            text-decoration: none; font-weight: bold; transition: 0.3s; 
+        }
+        .nav-btn:hover { background: #3b82f6; }
+
         .hero { text-align: center; padding: 90px 20px 60px; }
         .hero h1 { font-size: 42px; margin-bottom: 12px; }
         .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+
         .container { max-width: 1100px; margin: auto; padding: 20px; }
         .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
         .section.show { opacity: 1; transform: translateY(0); }
         .section.reverse { flex-direction: row-reverse; }
+
         .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
         .text { flex: 1; }
         .text h2 { font-size: 30px; margin-bottom: 15px; }
         .text p, .text ul { color: #475569; line-height: 1.8; font-size: 15px; }
         ul { padding-left: 18px; }
-        @media (max-width: 850px) { .section, .section.reverse { flex-direction: column; } .section img { max-width: 100%; height: 260px; } }
+
+        /* Dark Mode */
         .dark-mode { background: #111827; color: #e5e7eb; }
         .dark-mode .top-bar { background: #1f2937; }
         .dark-mode .hero p, .dark-mode .text p, .dark-mode ul { color: #cbd5f5; }
         .dark-mode .hero h1, .dark-mode .text h2 { color: #f0f9ff; }
+
+        @media (max-width: 850px) { 
+            .section, .section.reverse { flex-direction: column; } 
+            .section img { max-width: 100%; height: auto; } 
+        }
     </style>
 </head>
 <body>
@@ -38,7 +57,9 @@
 
 <section class="hero">
     <h1>Pinlac Bridge & Pinlac Falls</h1>
-    <p>Pinlac Bridge is a landmark crossing over the Agus River along Marilaque Highway, while nearby Pinlac Falls offers cascading freshwater pools and lush forest surroundings, making it ideal for eco-tourism, swimming, trekking, and photography.</p>
+    <p>
+        Pinlac Bridge is a landmark crossing over the Agus River along Marilaque Highway, while nearby Pinlac Falls offers cascading freshwater pools and lush forest surroundings. Ideal for eco-tourism, swimming, trekking, and photography.
+    </p>
 </section>
 
 <div class="container">
@@ -47,7 +68,9 @@
         <img src="PinlacBridge.jpg" alt="Pinlac Bridge Overview">
         <div class="text">
             <h2>Overview</h2>
-            <p>Pinlac Bridge is a key transport link connecting Infanta to Rizal and Metro Manila. Pinlac Falls is a scenic waterfall nearby with multiple cascading layers and natural pools, perfect for swimming, trekking, picnics, and photography. Both spots highlight the natural beauty of the Sierra Madre mountains and forested riverbanks.</p>
+            <p>
+                Pinlac Bridge is a key transport link connecting Infanta to Rizal and Metro Manila. Pinlac Falls is a scenic waterfall nearby with multiple cascading layers and natural pools, perfect for swimming, trekking, picnics, and photography. Both spots highlight the natural beauty of the Sierra Madre mountains and forested riverbanks.
+            </p>
         </div>
     </section>
 
@@ -55,7 +78,9 @@
         <img src="PinlacFalls.jpg" alt="Location & Accessibility of Pinlac Falls">
         <div class="text">
             <h2>Location & Accessibility</h2>
-            <p>Located in Barangay Magsaysay, Infanta, Quezon, Pinlac Bridge is accessible via Marilaque Highway by motorcycle, tricycle, jeepney, or private car. Pinlac Falls requires a short walk from Barangay Pinagrealan along a marked trail, suitable for casual hikers and nature enthusiasts.</p>
+            <p>
+                Located in Barangay Magsaysay, Infanta, Quezon, Pinlac Bridge is accessible via Marilaque Highway by motorcycle, tricycle, jeepney, or private car. Pinlac Falls requires a short walk from Barangay Pinagrealan along a marked trail, suitable for casual hikers and nature enthusiasts.
+            </p>
         </div>
     </section>
 
@@ -63,7 +88,9 @@
         <img src="PinlacFallsNature.jpg" alt="Geography and Natural Features of Pinlac Falls">
         <div class="text">
             <h2>Geography & Natural Features</h2>
-            <p>The bridge spans the Agus River, originating from the Sierra Madre mountains. Pinlac Falls features fresh, clean waters cascading into natural pools, surrounded by lush tropical vegetation, rolling hills, and forest trails. The serene environment provides ideal conditions for eco-tourism and photography.</p>
+            <p>
+                The bridge spans the Agus River, originating from the Sierra Madre mountains. Pinlac Falls features fresh, clean waters cascading into natural pools, surrounded by lush tropical vegetation, rolling hills, and forest trails. The serene environment provides ideal conditions for eco-tourism and photography.
+            </p>
         </div>
     </section>
 
@@ -83,10 +110,17 @@
 
 </div>
 
+<script src="applySettings.js"></script>
+<script>
+    if(typeof applySettings === "function") applySettings();
+</script>
+
 <script>
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) entry.target.classList.add('show'); 
+        });
     }, { threshold: 0.75 });
     sections.forEach(section => observer.observe(section));
 </script>
