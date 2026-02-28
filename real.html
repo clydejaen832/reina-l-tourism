@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
+        * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
 
         body {
             margin: 0;
-            background: #f5f7fa;
             color: #111827;
-            transition: background 0.3s, color 0.3s;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background 0.3s, color 0.3s, font-family 0.3s;
+        }
+
+        .reduced-motion * {
+            animation: none !important;
+            transition: none !important;
         }
 
         /* ===== TOP BAR ===== */
@@ -26,12 +30,10 @@
             padding: 15px 40px;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.3s;
         }
 
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-        }
+        .logo { font-size: 26px; font-weight: bold; }
 
         .nav-btn {
             padding: 8px 18px;
@@ -43,9 +45,7 @@
             transition: background 0.3s;
         }
 
-        .nav-btn:hover {
-            background: #3b82f6;
-        }
+        .nav-btn:hover { background: #3b82f6; }
 
         /* ===== PAGE HEADER ===== */
         .page-header {
@@ -57,11 +57,13 @@
             font-size: 40px;
             margin-bottom: 10px;
             color: #0f172a;
+            transition: color 0.3s;
         }
 
         .page-header p {
             font-size: 16px;
             color: #475569;
+            transition: color 0.3s;
         }
 
         /* ===== TOURIST SECTION ===== */
@@ -76,42 +78,36 @@
             align-items: center;
             gap: 40px;
             margin-bottom: 70px;
-
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .spot.reverse {
-            flex-direction: row-reverse;
-        }
+        .spot.reverse { flex-direction: row-reverse; }
 
-        .spot.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .spot.show { opacity: 1; transform: translateY(0); }
 
         .spot-image {
             flex: 1;
             height: 260px;
-            background: #d1d5db;
             border-radius: 18px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             color: #374151;
-            overflow: hidden;
+            background: #d1d5db;
+            transition: background 0.3s, color 0.3s;
         }
 
-        .spot-content {
-            flex: 1;
-        }
+        .spot-content { flex: 1; }
 
         .spot-content h2 {
             font-size: 28px;
             margin-bottom: 15px;
             color: #0f172a;
+            transition: color 0.3s;
         }
 
         .spot-content p {
@@ -119,6 +115,7 @@
             color: #475569;
             margin-bottom: 25px;
             line-height: 1.6;
+            transition: color 0.3s;
         }
 
         .explore-btn {
@@ -131,31 +128,7 @@
             transition: background 0.3s;
         }
 
-        .explore-btn:hover {
-            background: #3b82f6;
-        }
-
-        /* ===== PLACEHOLDER STYLE ===== */
-        .placeholder h2 {
-            color: #94a3b8;
-        }
-
-        .placeholder p {
-            color: #9ca3af;
-        }
-
-        .placeholder .explore-btn {
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 800px) {
-            .spot,
-            .spot.reverse {
-                flex-direction: column;
-            }
-        }
+        .explore-btn:hover { background: #3b82f6; }
 
         /* ===== DARK MODE ===== */
         .dark-mode {
@@ -163,41 +136,31 @@
             color: #e5e7eb;
         }
 
-        .dark-mode .top-bar {
-            background: #1f2937;
-        }
+        .dark-mode .top-bar { background: #1f2937; }
 
         .dark-mode .page-header h1,
-        .dark-mode .spot-content h2 {
-            color: #f0f9ff;
-        }
+        .dark-mode .spot-content h2 { color: #f0f9ff; }
 
         .dark-mode .page-header p,
-        .dark-mode .spot-content p {
-            color: #cbd5f5;
-        }
+        .dark-mode .spot-content p { color: #cbd5f5; }
 
-        .dark-mode .spot-image {
-            background: #374151;
-            color: #e5e7eb;
-        }
+        .dark-mode .spot-image { background: #374151; color: #e5e7eb; }
+
+        .dark-mode .explore-btn { background: #3b82f6; }
     </style>
 </head>
-<body>
+<body class="reduced-motion">
 
-<!-- TOP BAR -->
 <header class="top-bar">
     <div class="logo">Reina-L</div>
     <a href="index.html" class="nav-btn">Home</a>
 </header>
 
-<!-- HEADER -->
 <section class="page-header">
     <h1>Real, Quezon</h1>
     <p>Natural beauty through waterfalls and rivers</p>
 </section>
 
-<!-- TOURIST SPOTS -->
 <section class="tourist-section">
 
     <div class="spot">
@@ -250,11 +213,11 @@
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Tunauan.jpg" alt="Tunauan River"
+            <img src="Tanauan.jpg" alt="Tanauan River"
                  style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
         </div>
         <div class="spot-content">
-            <h2>Tunauan River</h2>
+            <h2>Tanauan River</h2>
             <p>A calm and refreshing river destination perfect for swimming, picnics, and family outings.</p>
             <a href="Tunauan.html" class="explore-btn">Explore</a>
         </div>
@@ -274,13 +237,12 @@
 
 </section>
 
-<!-- SETTINGS SUPPORT -->
 <script src="applysettings.js"></script>
-
-<!-- SCROLL FADE ANIMATION -->
 <script>
-    const spots = document.querySelectorAll('.spot');
+    applySettings(); // apply dark mode, background, fonts, and motion preferences
 
+    // SCROLL FADE-IN ANIMATION
+    const spots = document.querySelectorAll('.spot');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -289,10 +251,7 @@
                 entry.target.classList.remove('show');
             }
         });
-    }, {
-        threshold: 0.75
-    });
-
+    }, { threshold: 0.5 });
     spots.forEach(spot => observer.observe(spot));
 </script>
 
