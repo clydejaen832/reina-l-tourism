@@ -1,30 +1,34 @@
-// applySettings.js
-document.addEventListener('DOMContentLoaded', () => {
-    const themeSelect = document.getElementById('themeSetting');
-    const fontSelect = document.getElementById('fontSetting');
+// Apply settings from localStorage
+function applySettings() {
+    const theme = localStorage.getItem('theme') || 'light';
+    const textSize = localStorage.getItem('textSize') || 'normal';
+    const bgAnim = localStorage.getItem('bgAnim') || 'on';
+    const motion = localStorage.getItem('motion') || 'off';
 
-    // Load saved settings
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    const savedFont = localStorage.getItem('font') || 'Segoe UI, sans-serif';
-    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
-    document.body.style.fontFamily = savedFont;
-    themeSelect.value = savedTheme;
-    fontSelect.value = savedFont;
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.body.classList.toggle('large-text', textSize === 'large');
+    document.body.classList.toggle('bg-animated', bgAnim === 'on');
+    document.body.classList.toggle('reduced-motion', motion === 'on');
 
-    // Theme change
-    themeSelect.addEventListener('change', () => {
-        if(themeSelect.value === 'dark'){
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
-        }
-        localStorage.setItem('theme', themeSelect.value);
-    });
+    // Animate spots if bg animation is on
+    if(bgAnim === 'on') {
+        const fades = document.querySelectorAll('.fade');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.25 });
 
-    // Font change
-    fontSelect.addEventListener('change', () => {
-        document.body.style.fontFamily = fontSelect.value;
-        localStorage.setItem('font', fontSelect.value);
-    });
-});
+        fades.forEach(el => observer.observe(el));
+    } else {
+        // If animation off, show all instantly
+        document.querySelectorAll('.fade').forEach(el => {
+            el.classList.add('visible');
+            el.style.transition = 'none';
+        });
+    }
 }
