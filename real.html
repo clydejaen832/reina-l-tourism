@@ -272,22 +272,39 @@ body.dark-mode .logo {
 
 <script src="applySettings.js"></script>
 <script>
-    applySettings(); // Ensure theme, font, background, language settings are applied
-</script>
+const fades = document.querySelectorAll('.fade');
 
-<!-- Scroll Animation -->
-<script>
-    const sections = document.querySelectorAll('.section');
+const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
+    });
+}, { threshold: 0.75 });
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, { threshold: 0.3 });
+fades.forEach(el => fadeObserver.observe(el));
 
-    sections.forEach(section => observer.observe(section));
+/* Remove intro after animation ends */
+setTimeout(() => {
+    document.querySelector('.intro')?.remove();
+}, 4200);
+
+/* Apply dark/light background on load */
+function applyTheme(theme) {
+    if(theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.intro').style.backgroundImage = "url('Front2.jpg')";
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.querySelector('.intro').style.backgroundImage = "url('Front.jpg')";
+    }
+}
+
+/* Example: load theme from localStorage */
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
 </script>
 
 </body>
