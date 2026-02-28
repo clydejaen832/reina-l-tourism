@@ -293,19 +293,18 @@ body.dark-mode .logo {
 
 <script src="applySettings.js"></script>
 <script>
-const fades = document.querySelectorAll('.fade');
+/* Animate spots on scroll */
+const spots = document.querySelectorAll('.spot');
 
-const fadeObserver = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        } else {
-            entry.target.classList.remove('visible');
+        if(entry.isIntersecting) {
+            entry.target.classList.add('show');
         }
     });
-}, { threshold: 0.75 });
+}, { threshold: 0.3 }); // slightly lower so shorter sections trigger
 
-fades.forEach(el => fadeObserver.observe(el));
+spots.forEach(spot => observer.observe(spot));
 
 /* Remove intro after animation ends */
 setTimeout(() => {
@@ -316,14 +315,13 @@ setTimeout(() => {
 function applyTheme(theme) {
     if(theme === 'dark') {
         document.body.classList.add('dark-mode');
-        document.querySelector('.intro').style.backgroundImage = "url('Front2.jpg')";
+        document.querySelector('.intro')?.style.backgroundImage = "url('Front2.jpg')";
     } else {
         document.body.classList.remove('dark-mode');
-        document.querySelector('.intro').style.backgroundImage = "url('Front.jpg')";
+        document.querySelector('.intro')?.style.backgroundImage = "url('Front.jpg')";
     }
 }
 
-/* Example: load theme from localStorage */
 const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 </script>
