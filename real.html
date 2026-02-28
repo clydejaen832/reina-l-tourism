@@ -42,14 +42,6 @@ body.dark-mode::before {
 }
 
 /* =========================
-   REDUCED MOTION
-========================= */
-.reduced-motion * {
-    animation: none !important;
-    transition: none !important;
-}
-
-/* =========================
    TOP BAR
 ========================= */
 .top-bar {
@@ -200,7 +192,7 @@ body.dark-mode .logo {
 </style>
 </head>
 
-<body class="reduced-motion">
+<body>
 
 <!-- TOP BAR -->
 <header class="top-bar">
@@ -219,8 +211,7 @@ body.dark-mode .logo {
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Balagbag.jpg" alt="Balagbag Falls"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Balagbag.jpg" alt="Balagbag Falls">
         </div>
         <div class="spot-content">
             <h2>Balagbag</h2>
@@ -231,8 +222,7 @@ body.dark-mode .logo {
 
     <div class="spot reverse">
         <div class="spot-image">
-            <img src="Nonok.jpg" alt="Nonok Falls"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Nonok.jpg" alt="Nonok Falls">
         </div>
         <div class="spot-content">
             <h2>Nonok</h2>
@@ -243,8 +233,7 @@ body.dark-mode .logo {
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Casa.jpg" alt="Casa Luna"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Casa.jpg" alt="Casa Luna">
         </div>
         <div class="spot-content">
             <h2>Casa Luna</h2>
@@ -255,8 +244,7 @@ body.dark-mode .logo {
 
     <div class="spot reverse">
         <div class="spot-image">
-            <img src="Baluti.jpg" alt="Baluti Island"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Baluti.jpg" alt="Baluti Island">
         </div>
         <div class="spot-content">
             <h2>Baluti Island</h2>
@@ -267,8 +255,7 @@ body.dark-mode .logo {
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Tanauan.jpg" alt="Tanauan River"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Tanauan.jpg" alt="Tanauan River">
         </div>
         <div class="spot-content">
             <h2>Tanauan River</h2>
@@ -279,8 +266,7 @@ body.dark-mode .logo {
 
     <div class="spot reverse">
         <div class="spot-image">
-            <img src="Bagumbong.jpg" alt="Bagumbong Falls"
-                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <img src="Bagumbong.jpg" alt="Bagumbong Falls">
         </div>
         <div class="spot-content">
             <h2>Bagumbong Falls</h2>
@@ -302,23 +288,24 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.add('show');
         }
     });
-}, { threshold: 0.3 }); // slightly lower so shorter sections trigger
+}, { threshold: 0.3 });
 
 spots.forEach(spot => observer.observe(spot));
 
-/* Remove intro after animation ends */
-setTimeout(() => {
-    document.querySelector('.intro')?.remove();
-}, 4200);
+/* Ensure spots already in view are visible */
+spots.forEach(spot => {
+    const rect = spot.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.8) {
+        spot.classList.add('show');
+    }
+});
 
 /* Apply dark/light background on load */
 function applyTheme(theme) {
     if(theme === 'dark') {
         document.body.classList.add('dark-mode');
-        document.querySelector('.intro')?.style.backgroundImage = "url('Front2.jpg')";
     } else {
         document.body.classList.remove('dark-mode');
-        document.querySelector('.intro')?.style.backgroundImage = "url('Front.jpg')";
     }
 }
 
