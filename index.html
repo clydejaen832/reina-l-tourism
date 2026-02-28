@@ -13,9 +13,8 @@
 
 body {
     margin: 0;
-    background: url("Front.jpg") no-repeat center center fixed;
-    background-size: cover;
-    color: #111827;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 /* ================= INTRO JEEP ================= */
@@ -57,10 +56,6 @@ body {
     to { transform: translateX(120vw); opacity: 0; }
 }
 
-.reduced-motion .intro {
-    display: none;
-}
-
 /* ================= BANNER ================= */
 .banner-info-container {
     position: relative;
@@ -69,7 +64,7 @@ body {
 
 .banner {
     height: 200px;
-    background: rgba(30, 58, 138, 0.9);
+    background: rgba(30, 58, 138, 0.7); /* Slight overlay to read text */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,7 +96,7 @@ body {
 .nav-btn {
     padding: 8px 18px;
     border-radius: 18px;
-    background: #1e3a8a;
+    background: rgba(0,0,0,0.6);
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -109,7 +104,7 @@ body {
 }
 
 .nav-btn:hover {
-    background: #3b82f6;
+    background: rgba(0,0,0,0.8);
 }
 
 /* ================= INFO STRIP ================= */
@@ -120,19 +115,7 @@ body {
     padding: 20px 60px;
     align-items: center;
     margin: 30px 60px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 20px;
-}
-
-.info-box {
-    color: #475569;
-    line-height: 1.6;
-}
-
-.center-box {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
+    background: transparent; /* Removed white panel */
 }
 
 /* ================= MUNICIPALITIES ================= */
@@ -140,8 +123,7 @@ body {
     max-width: 1200px;
     margin: 40px auto 80px;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 30px;
+    background: transparent; /* Removed white panel */
 }
 
 .section-title {
@@ -167,7 +149,6 @@ body {
     height: 300px;
     object-fit: cover;
     border-radius: 20px;
-    background: #e5e7eb;
 }
 
 .municipality-content h2 {
@@ -176,14 +157,13 @@ body {
 }
 
 .municipality-content p {
-    color: #475569;
     margin-bottom: 22px;
 }
 
 .explore-btn {
     padding: 10px 26px;
     border-radius: 22px;
-    background: #1e3a8a;
+    background: rgba(0,0,0,0.6);
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -191,7 +171,7 @@ body {
 }
 
 .explore-btn:hover {
-    background: #3b82f6;
+    background: rgba(0,0,0,0.8);
 }
 
 /* ================= SCROLL FADE ================= */
@@ -215,10 +195,8 @@ body {
 footer {
     text-align: center;
     padding: 24px;
-    background: rgba(241, 245, 249, 0.9);
-    color: #475569;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    background: transparent; /* Removed white panel */
+    color: white;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -315,7 +293,6 @@ footer {
 </footer>
 
 <script src="applysettings.js"></script>
-
 <script>
 const fades = document.querySelectorAll('.fade');
 
@@ -334,16 +311,6 @@ fades.forEach(el => fadeObserver.observe(el));
 setTimeout(() => {
     document.querySelector('.intro')?.remove();
 }, 4200);
-</script>
-
-<script src="applysettings.js"></script>
-<script>applySettings();</script>
-<script>
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
-    }, { threshold: 0.75 });
-    sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
