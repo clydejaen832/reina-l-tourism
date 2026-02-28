@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * { box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+
         body { 
             margin: 0; 
             background: #f5f7fa; 
             color: #111827; 
             transition: background 0.3s, color 0.3s; 
         }
+
         .top-bar { 
             display: flex; 
             justify-content: space-between; 
@@ -19,9 +21,7 @@
             padding: 15px 40px; 
             background: white; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
+            position: sticky; top: 0; z-index: 100; 
             transition: background 0.3s, color 0.3s;
         }
         .logo { font-size: 26px; font-weight: bold; }
@@ -35,23 +35,29 @@
             transition: 0.3s; 
         }
         .nav-btn:hover { background: #3b82f6; }
+
         .hero { text-align: center; padding: 90px 20px 60px; }
         .hero h1 { font-size: 42px; margin-bottom: 12px; }
         .hero p { max-width: 750px; margin: auto; color: #475569; font-size: 16px; line-height: 1.7; }
+
         .container { max-width: 1100px; margin: auto; padding: 20px; }
         .section { display: flex; align-items: center; gap: 50px; margin-bottom: 90px; opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
         .section.show { opacity: 1; transform: translateY(0); }
         .section.reverse { flex-direction: row-reverse; }
+
         .section img { width: 100%; max-width: 480px; height: 320px; object-fit: cover; border-radius: 22px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
         .text { flex: 1; }
         .text h2 { font-size: 30px; margin-bottom: 15px; }
         .text p, .text ul { color: #475569; line-height: 1.8; font-size: 15px; }
         ul { padding-left: 18px; }
+
         /* Dark Mode */
         body.dark-mode { background: #111827; color: #e5e7eb; }
         body.dark-mode .top-bar { background: rgba(31,41,55,0.9); }
         body.dark-mode .text p, body.dark-mode .text ul, body.dark-mode .hero p { color: #cbd5f5; }
         body.dark-mode .hero h1, body.dark-mode .text h2 { color: #f0f9ff; }
+
         @media (max-width: 850px) { 
             .section, .section.reverse { flex-direction: column; }
             .section img { max-width: 100%; height: auto; }
@@ -67,7 +73,9 @@
 
 <section class="hero">
     <h1>Eco Adventure Park</h1>
-    <p>A nature-focused eco-tourism site in Barangay Magsaysay, Infanta offering river swims, forest trekking, bamboo rafting, and wildlife experiences in lush surroundings.</p>
+    <p>
+        A nature-focused eco-tourism site in Barangay Magsaysay, Infanta offering river swims, forest trekking, bamboo rafting, and wildlife experiences in lush surroundings.
+    </p>
 </section>
 
 <div class="container">
@@ -76,7 +84,9 @@
         <img src="EcoAdventure1.jpg" alt="Eco Adventure Park Overview">
         <div class="text">
             <h2>Overview</h2>
-            <p>Eco Adventure Park features natural water pools, open green areas, and forest trails. Perfect for family outings, adventure, and nature exploration in Infanta.</p>
+            <p>
+                Eco Adventure Park features natural water pools, open green areas, and forest trails. Perfect for family outings, adventure, and nature exploration in Infanta.
+            </p>
         </div>
     </section>
 
@@ -84,7 +94,9 @@
         <img src="EcoAdventure2.jpg" alt="Location & Accessibility">
         <div class="text">
             <h2>Location & Accessibility</h2>
-            <p>Located at Km 2, Barangay Magsaysay, Infanta. Accessible via private vehicle or public commute along local roads leading from the highway.</p>
+            <p>
+                Located at Km 2, Barangay Magsaysay, Infanta. Accessible via private vehicle or public commute along local roads leading from the highway.
+            </p>
         </div>
     </section>
 
@@ -92,7 +104,9 @@
         <img src="EcoAdventure3.jpg" alt="Geography & Natural Features">
         <div class="text">
             <h2>Geography & Natural Features</h2>
-            <p>Rural area near the Sierra Madre foothills, tropical climate, lush vegetation, natural water pools, and diverse flora and fauna including fruit bats at the nearby mangrove park.</p>
+            <p>
+                Rural area near the Sierra Madre foothills, tropical climate, lush vegetation, natural water pools, and diverse flora and fauna including fruit bats at the nearby mangrove park.
+            </p>
         </div>
     </section>
 
@@ -113,17 +127,14 @@
 
 <script src="applySettings.js"></script>
 <script>
-    applySettings(); // Ensure theme, font, background, language settings are applied
+    if(typeof applySettings === "function") applySettings();
 </script>
 
-<!-- Scroll Animation -->
 <script>
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
+            if(entry.isIntersecting) entry.target.classList.add('show');
         });
     }, { threshold: 0.3 });
     sections.forEach(section => observer.observe(section));
