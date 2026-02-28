@@ -9,8 +9,10 @@ function applySettings() {
     // ===== Theme Mode =====
     if (settings.theme === 'dark') {
         body.classList.add('dark-mode');
+        body.style.backgroundImage = "url('Front2.jpg')";
     } else {
         body.classList.remove('dark-mode');
+        body.style.backgroundImage = "url('Front.jpg')";
     }
 
     // ===== Background Animation =====
@@ -47,7 +49,7 @@ function applySettings() {
 // Apply immediately on page load
 document.addEventListener('DOMContentLoaded', applySettings);
 
-// For settings page: attach change listeners to save changes
+// ===== SETTINGS PAGE LISTENERS =====
 const themeSelect = document.getElementById('themeSetting');
 const bgAnimSelect = document.getElementById('bgAnimSetting');
 const soundSelect = document.getElementById('soundSetting');
