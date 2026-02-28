@@ -1,44 +1,30 @@
-// Get dropdowns if they exist
-const themeSelect = document.getElementById('themeSetting');
-const textSizeSelect = document.getElementById('textSizeSetting');
-const bgAnimSelect = document.getElementById('bgAnimSetting');
-const motionSelect = document.getElementById('motionSetting');
-const langSelect = document.getElementById('langSetting'); // optional
+// applySettings.js
+document.addEventListener('DOMContentLoaded', () => {
+    const themeSelect = document.getElementById('themeSetting');
+    const fontSelect = document.getElementById('fontSetting');
 
-// Function to apply settings
-function applySettings() {
-    const theme = localStorage.getItem('theme') || 'light';
-    const textSize = localStorage.getItem('textSize') || 'normal';
-    const bgAnim = localStorage.getItem('bgAnim') || 'on';
-    const motion = localStorage.getItem('motion') || 'off';
-    const lang = localStorage.getItem('lang') || 'en';
+    // Load saved settings
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedFont = localStorage.getItem('font') || 'Segoe UI, sans-serif';
+    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    document.body.style.fontFamily = savedFont;
+    themeSelect.value = savedTheme;
+    fontSelect.value = savedFont;
 
-    // Toggle CSS classes on body
-    document.body.classList.toggle('dark-mode', theme === 'dark');
-    document.body.classList.toggle('large-text', textSize === 'large');
-    document.body.classList.toggle('bg-animated', bgAnim === 'on');
-    document.body.classList.toggle('reduced-motion', motion === 'on');
+    // Theme change
+    themeSelect.addEventListener('change', () => {
+        if(themeSelect.value === 'dark'){
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+        localStorage.setItem('theme', themeSelect.value);
+    });
 
-    // Update dropdowns if present
-    if(themeSelect) themeSelect.value = theme;
-    if(textSizeSelect) textSizeSelect.value = textSize;
-    if(bgAnimSelect) bgAnimSelect.value = bgAnim;
-    if(motionSelect) motionSelect.value = motion;
-    if(langSelect) langSelect.value = lang;
+    // Font change
+    fontSelect.addEventListener('change', () => {
+        document.body.style.fontFamily = fontSelect.value;
+        localStorage.setItem('font', fontSelect.value);
+    });
+});
 }
-
-// Save a setting and reapply immediately
-function saveSetting(key, value) {
-    localStorage.setItem(key, value);
-    applySettings();
-}
-
-// Add change listeners if dropdowns exist
-if(themeSelect) themeSelect.addEventListener('change', e => saveSetting('theme', e.target.value));
-if(textSizeSelect) textSizeSelect.addEventListener('change', e => saveSetting('textSize', e.target.value));
-if(bgAnimSelect) bgAnimSelect.addEventListener('change', e => saveSetting('bgAnim', e.target.value));
-if(motionSelect) motionSelect.addEventListener('change', e => saveSetting('motion', e.target.value));
-if(langSelect) langSelect.addEventListener('change', e => saveSetting('lang', e.target.value));
-
-// Apply settings immediately on page load
-window.addEventListener('DOMContentLoaded', applySettings);

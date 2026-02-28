@@ -5,7 +5,8 @@
 
 body {
     margin: 0;
-    background: #f5f7fa;
+    background: url('Front.jpg') no-repeat center center fixed;
+    background-size: cover; /* full-screen image, not cropped */
     color: #222;
     transition: background 0.3s, color 0.3s, font-size 0.3s;
 }
@@ -154,8 +155,10 @@ footer {
    SETTINGS SUPPORT
 ===================== */
 
+/* Dark mode with full background image */
 .dark-mode {
-    background: #0a0a0a;
+    background: url('Front2.jpg') no-repeat center center fixed !important;
+    background-size: cover !important; /* full-screen image, not cropped */
     color: #ecfeff;
 }
 
