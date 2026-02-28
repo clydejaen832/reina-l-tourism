@@ -277,40 +277,34 @@ body.dark-mode .logo {
 
 </section>
 
-<script src="applySettings.js"></script>
-<script>
-/* Animate spots on scroll */
-const spots = document.querySelectorAll('.spot');
+<!-- SETTINGS SUPPORT -->
+<script src="applysettings.js"></script>
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('show');
+<!-- SCROLL FADE ANIMATION -->
+<script>
+    const spots = document.querySelectorAll('.spot');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, {
+        threshold: 0.75
+    });
+
+    spots.forEach(spot => observer.observe(spot));
+
+    /* Ensure spots already in view are visible on load */
+    spots.forEach(spot => {
+        const rect = spot.getBoundingClientRect();
+        if(rect.top < window.innerHeight * 0.8) {
+            spot.classList.add('show');
         }
     });
-}, { threshold: 0.3 });
-
-spots.forEach(spot => observer.observe(spot));
-
-/* Ensure spots already in view are visible */
-spots.forEach(spot => {
-    const rect = spot.getBoundingClientRect();
-    if(rect.top < window.innerHeight * 0.8) {
-        spot.classList.add('show');
-    }
-});
-
-/* Apply dark/light background on load */
-function applyTheme(theme) {
-    if(theme === 'dark') {
-        document.body.classList.add('dark-mode');
-    } else {
-        document.body.classList.remove('dark-mode');
-    }
-}
-
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
 </script>
 
 </body>

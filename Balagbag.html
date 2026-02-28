@@ -173,20 +173,17 @@
 
 </div>
 
-<!-- SETTINGS SUPPORT -->
-<script src="applysettings.js"></script>
+<script src="applySettings.js"></script>
 <script>
     if(typeof applySettings === "function") applySettings();
-</script>
 
-<!-- SCROLL ANIMATION -->
-<script>
+    // IntersectionObserver for section animations
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if(entry.isIntersecting) entry.target.classList.add('show');
         });
-    }, { threshold: 0.75 });
+    }, { threshold: 0.3 });
     sections.forEach(section => observer.observe(section));
 </script>
 
