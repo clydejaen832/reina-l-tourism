@@ -1,189 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TouReina | Nakar, Quezon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>TouReina | Real, Quezon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
 
-        body {
-            margin: 0;
-            background: #f5f7fa;
-            color: #111827;
-            transition: background 0.3s, color 0.3s;
-        }
+/* =========================
+   BACKGROUND SYSTEM
+========================= */
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: white;
+    background: url("Front.jpg") center / cover no-repeat fixed;
+    transition: background 0.4s ease, color 0.3s ease;
+}
 
-        /* ===== TOP BAR ===== */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+/* Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: -1;
+    transition: background 0.4s ease;
+}
 
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-        }
+/* DARK MODE */
+body.dark-mode {
+    background: url("Front2.jpg") center / cover no-repeat fixed;
+}
 
-        .nav-btn {
-            padding: 8px 18px;
-            border-radius: 18px;
-            background: #1e3a8a;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
+body.dark-mode::before {
+    background: rgba(0,0,0,0.65);
+}
 
-        .nav-btn:hover {
-            background: #3b82f6;
-        }
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+    transition: background 0.3s, color 0.3s;
+}
 
-        /* ===== PAGE HEADER ===== */
-        .page-header {
-            text-align: center;
-            padding: 70px 20px 40px;
-        }
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #111827;
+}
 
-        .page-header h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
+.nav-btn {
+    padding: 8px 18px;
+    border-radius: 18px;
+    background: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .page-header p {
-            font-size: 16px;
-            color: #475569;
-        }
+.nav-btn:hover {
+    background: #3b82f6;
+}
 
-        /* ===== TOURIST SECTION ===== */
-        .tourist-section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
+/* Dark top bar */
+body.dark-mode .top-bar {
+    background: rgba(31,41,55,0.9);
+}
 
-        .spot {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 70px;
+body.dark-mode .logo {
+    color: white;
+}
 
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
+/* =========================
+   HERO
+========================= */
+.page-header {
+    text-align: center;
+    padding: 140px 20px 80px;
+}
 
-        .spot.reverse {
-            flex-direction: row-reverse;
-        }
+.page-header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
 
-        .spot.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
 
-        .spot-image {
-            flex: 1;
-            height: 260px;
-            background: #d1d5db;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #374151;
-            overflow: hidden;
-        }
+/* =========================
+   TOURIST SECTION
+========================= */
+.tourist-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px 80px;
+}
 
-        .spot-content {
-            flex: 1;
-        }
+.spot {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-        .spot-content h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #0f172a;
-        }
+.spot.reverse {
+    flex-direction: row-reverse;
+}
 
-        .spot-content p {
-            font-size: 15px;
-            color: #475569;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
+.spot.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .explore-btn {
-            padding: 10px 24px;
-            background: #1e3a8a;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
+.spot-image {
+    flex: 1;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
 
-        .explore-btn:hover {
-            background: #3b82f6;
-        }
+.spot-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* ===== PLACEHOLDER STYLE ===== */
-        .placeholder h2 {
-            color: #94a3b8;
-        }
+.spot-content {
+    flex: 1;
+}
 
-        .placeholder p {
-            color: #9ca3af;
-        }
+.spot-content h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
 
-        .placeholder .explore-btn {
-            opacity: 0.4;
-            pointer-events: none;
-        }
+.spot-content p {
+    line-height: 1.7;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 800px) {
-            .spot,
-            .spot.reverse {
-                flex-direction: column;
-            }
-        }
+.explore-btn {
+    padding: 10px 26px;
+    background: #1e3a8a;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        /* ===== DARK MODE ===== */
-        .dark-mode {
-            background: #111827;
-            color: #e5e7eb;
-        }
+.explore-btn:hover {
+    background: #3b82f6;
+}
 
-        .dark-mode .top-bar {
-            background: #1f2937;
-        }
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .spot {
+        flex-direction: column !important;
+        text-align: center;
+    }
 
-        .dark-mode .page-header h1,
-        .dark-mode .spot-content h2 {
-            color: #f0f9ff;
-        }
+    .spot-image {
+        width: 100%;
+    }
 
-        .dark-mode .page-header p,
-        .dark-mode .spot-content p {
-            color: #cbd5f5;
-        }
-
-        .dark-mode .spot-image {
-            background: #374151;
-            color: #e5e7eb;
-        }
-    </style>
+    .page-header h1 {
+        font-size: 36px;
+    }
+}
+</style>
 </head>
+
 <body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+    <div class="logo">Reina-L</div>
+    <a href="index.html" class="nav-btn">Home</a>
+</header>
+
+<!-- HEADER -->
+<section class="page-header">
+    <h1>Real, Quezon</h1>
+    <p>Natural beauty through waterfalls and rivers</p>
+</section>
 
 <!-- TOP BAR -->
 <header class="top-bar">
@@ -202,7 +223,8 @@
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Minahan.jpg" alt="Minahan">
+            <img src="Minahan.jpg" alt="Minahan"
+                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
         </div>
         <div class="spot-content">
             <h2>Minahan</h2>
@@ -225,7 +247,8 @@
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Tulaog.jpg" alt="Tulaog Cave">
+            <img src="Tulaog.jpg" alt="Tulaog Cave"
+                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
         </div>
         <div class="spot-content">
             <h2>Tulaog</h2>
@@ -248,7 +271,8 @@
 
     <div class="spot">
         <div class="spot-image">
-            <img src="Depalyon.jpg" alt="Depalyon Falls">
+            <img src="Depalyon.jpg" alt="Depalyon Falls"
+                 style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
         </div>
         <div class="spot-content">
             <h2>Depalyon Falls</h2>
@@ -292,6 +316,14 @@
     });
 
     spots.forEach(spot => observer.observe(spot));
+
+    /* Ensure spots already in view are visible on load */
+    spots.forEach(spot => {
+        const rect = spot.getBoundingClientRect();
+        if(rect.top < window.innerHeight * 0.8) {
+            spot.classList.add('show');
+        }
+    });
 </script>
 
 </body>
