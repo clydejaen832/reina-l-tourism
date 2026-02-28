@@ -47,22 +47,37 @@
 
         .nav-btn:hover { background: #3b82f6; }
 
-        /* ===== PAGE HEADER ===== */
+        /* ===== PAGE HEADER / HERO IMAGE ===== */
         .page-header {
             text-align: center;
-            padding: 70px 20px 40px;
+            padding: 120px 20px 60px;
+            background: url('Front.jpg') center/cover no-repeat;
+            position: relative;
+            color: white;
+        }
+
+        /* dark overlay for readability */
+        .page-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .page-header h1,
+        .page-header p {
+            position: relative; /* above overlay */
+            z-index: 1;
         }
 
         .page-header h1 {
             font-size: 40px;
             margin-bottom: 10px;
-            color: #0f172a;
             transition: color 0.3s;
         }
 
         .page-header p {
             font-size: 16px;
-            color: #475569;
             transition: color 0.3s;
         }
 
@@ -156,6 +171,7 @@
     <a href="index.html" class="nav-btn">Home</a>
 </header>
 
+<!-- HERO / FRONT IMAGE HEADER -->
 <section class="page-header">
     <h1>Real, Quezon</h1>
     <p>Natural beauty through waterfalls and rivers</p>
