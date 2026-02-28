@@ -15,20 +15,32 @@ body {
     margin: 0;
     color: white;
 
-    /* FULL PAGE BACKGROUND */
+    /* ☀️ LIGHT MODE IMAGE */
     background: url('Front.jpg') no-repeat center center fixed;
     background-size: cover;
 
-    transition: background 0.3s, color 0.3s, font-family 0.3s;
+    transition: background 0.5s ease, color 0.3s, font-family 0.3s;
 }
 
-/* Dark overlay for readability */
+/* Overlay */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.45);
     z-index: -1;
+    transition: background 0.5s ease;
+}
+
+/* 🌙 DARK MODE BACKGROUND SWITCH */
+.dark-mode {
+    background: url('Front2.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Darker overlay in dark mode */
+.dark-mode::before {
+    background: rgba(0,0,0,0.65);
 }
 
 /* Reduced Motion */
@@ -165,7 +177,7 @@ body::before {
     }
 }
 
-/* ===== DARK MODE SUPPORT ===== */
+/* ===== DARK MODE TOP BAR ===== */
 .dark-mode .top-bar {
     background: rgba(31,41,55,0.9);
 }
