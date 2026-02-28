@@ -17,17 +17,12 @@
 
 body {
     margin: 0;
-    color: white;
     min-height: 100vh;
+    color: white;
 
     /* LIGHT MODE IMAGE */
-    background-image: url("Front.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    transition: background-image 0.4s ease;
+    background: url("Front.jpg") center / cover no-repeat fixed;
+    transition: background 0.4s ease, color 0.3s ease;
 }
 
 /* Overlay */
@@ -40,12 +35,11 @@ body::before {
     transition: background 0.4s ease;
 }
 
-/* DARK MODE IMAGE */
+/* DARK MODE */
 body.dark-mode {
-    background-image: url("Front2.jpg");
+    background: url("Front2.jpg") center / cover no-repeat fixed;
 }
 
-/* Darker overlay */
 body.dark-mode::before {
     background: rgba(0,0,0,0.65);
 }
@@ -85,12 +79,14 @@ body.dark-mode::before {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .nav-btn:hover {
     background: #3b82f6;
 }
 
+/* Dark top bar */
 body.dark-mode .top-bar {
     background: rgba(31,41,55,0.9);
 }
@@ -183,6 +179,7 @@ body.dark-mode .logo {
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .explore-btn:hover {
@@ -202,11 +199,15 @@ body.dark-mode .logo {
     .spot-image {
         width: 100%;
     }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
 }
 </style>
 </head>
 
-<body class="reduced-motion">
+<body>
 
 <header class="top-bar">
     <div class="logo">Reina-L</div>
@@ -219,6 +220,8 @@ body.dark-mode .logo {
 </section>
 
 <section class="tourist-section">
+
+    <!-- SPOTS (unchanged content) -->
 
     <div class="spot">
         <div class="spot-image">
@@ -290,18 +293,23 @@ body.dark-mode .logo {
 
 <script src="applysettings.js"></script>
 <script>
-applySettings();
+document.addEventListener("DOMContentLoaded", function() {
 
-const spots = document.querySelectorAll('.spot');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
-}, { threshold: 0.4 });
+    if (typeof applySettings === "function") {
+        applySettings();
+    }
 
-spots.forEach(spot => observer.observe(spot));
+    const spots = document.querySelectorAll('.spot');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.4 });
+
+    spots.forEach(spot => observer.observe(spot));
+});
 </script>
 
 </body>
